@@ -1,4 +1,4 @@
-responsive-theme
+responsive-boostrap
 ================
 
 Magento Responsive Theme built with Twitter Bootstrap v3
@@ -21,7 +21,7 @@ Additional versions and community support coming soon...
 
 ================
 
-See <a href="http://getboostrap.com" target="_blank">getbootrap.com</a> for more info
+See <a href="http://getbootstrap.com" target="_blank">getbootstrap.com</a> for more info
 
 ================
 
