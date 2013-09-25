@@ -5,14 +5,14 @@ Magento Responsive Theme built with Twitter Bootstrap v3
 
 <ul>
 <li>Integrates Twitter Bootstrap framework to give responsiveness and modern design elements</li>
-*Makes minimal changes to the default theme structure
-*Includes just one layout file (local.xml)
-*Does not include the kitchen sink
+<li>Makes minimal changes to the default theme structure</li>
+<li>Includes just one layout file (local.xml)</li>
+<li>Does not include the kitchen sink</li>
 
 ================
 
-Currently Compatiable with Magento Enterprise 1.13
-Additional versions and community support coming soon.
+Currently compatiable with Magento Enterprise 1.13
+Additional versions and community support coming soon...
 
 ================
 
