@@ -3,7 +3,8 @@ responsive-theme
 
 Magento Responsive Theme built with Twitter Bootstrap v3
 
-*Integrates Twitter Bootstrap framework to give responsiveness and modern design elements
+<ul>
+<li>Integrates Twitter Bootstrap framework to give responsiveness and modern design elements</li>
 *Makes minimal changes to the default theme structure
 *Includes just one layout file (local.xml)
 *Does not include the kitchen sink
