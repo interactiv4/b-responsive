@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<config>    
+	<modules>
+	<Redlightblinking_Mobile><version>1.0.0</version></Redlightblinking_Mobile></modules>
+
+	<global>
+		<helpers>
+			<mobile>
+				<class>Redlightblinking_Mobile_Helper</class>
+			</mobile>
+		</helpers>
+        <models>
+            <mobile>
+                <class>Redlightblinking_Mobile_Model</class>
+            </mobile>   
+        </models>
+        
+      	<resources>
+            <redlightblinking_mobile_setup>
+                <setup> 
+					<module>Redlightblinking_Mobile</module>
+					<class>Mage_Catalog_Model_Resource_Eav_Mysql4_Setup</class>                                    
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </redlightblinking_mobile_setup>
+			<redlightblinking_mobile_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </redlightblinking_mobile_write>
+            <redlightblinking_mobile_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </redlightblinking_mobile_read>
+			
+		</resources>		
+	</global>
+	
+    <frontend>
+        <routers>
+            <mobile>
+                <use>standard</use>
+                <args>
+                    <module>Redlightblinking_Mobile</module>
+                    <frontName>mobile</frontName>
+                </args>
+            </mobile>
+        </routers>  
+    </frontend>
+
+    <adminhtml>
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <mobile_options>
+                                            <title>RED LIGHT BLINKING Module Section</title>
+                                        </mobile_options>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>
+    
+</config>
