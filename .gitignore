@@ -102,6 +102,8 @@ skin/frontend/default/french/
 skin/frontend/default/german/
 skin/frontend/default/iphone/
 skin/frontend/default/modern/
-skin/frontend/enterprise
+skin/frontend/enterprise/default/
 skin/install/
 var/
+.sass-cache/
+.DS_Store
