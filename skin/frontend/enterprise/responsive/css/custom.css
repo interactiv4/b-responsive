@@ -321,6 +321,10 @@ footer {
   height: auto;
 }
 
+.products-list h2.product-name {
+  margin-top: 0;
+}
+
 /* Shopping Cart */
 .cell-label {
   display: none;
@@ -821,5 +825,14 @@ footer {
     float: none;
     margin: 0 auto 20px;
     width: 80%;
+  }
+
+  .products-list .col-xs-9 {
+    width: 100%;
+    clear: both;
+  }
+  .products-list .col-xs-3 {
+    margin-bottom: 20px;
+    width: 50%;
   }
 }
