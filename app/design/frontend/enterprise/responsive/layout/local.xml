@@ -16,4 +16,13 @@
 		    <remove name="wishlist_link"/>
 		</reference>
 	</default>
+
+	<checkout_onepage_index>
+        <reference name="checkout.onepage.login">
+            <action method="setTemplate"><template>checkout/onepage/login.phtml</template></action>
+        </reference>
+        <reference name="checkout.onepage.billing">
+            <action method="setTemplate"><template>checkout/onepage/billing.phtml</template></action>
+        </reference>
+    </checkout_onepage_index>
 </layout>
