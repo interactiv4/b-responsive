@@ -26,14 +26,14 @@
 /* @var $this Enterprise_TargetRule_Block_Checkout_Cart_Crosssell */
 ?>
 <?php if ($this->hasItems()):?>
-<div class="panel panel-info">
+<div class="panel panel-info panel-crosssell">
     <div class="panel-heading">
         <div class="panel-title"><?php echo $this->__('Based on your selection, you may be interested in the following items:') ?></div>
     </div>
     <div class="panel-body">
         <ul>
         <?php foreach ($this->getItemCollection() as $_item): ?>
-            <li class="item col-xs-6 col-md-3">
+            <li class="item col-xs-4 col-md-3">
                 <a class="product-image" href="<?php echo $this->getProductUrl($_item) ?>"><img src="<?php echo $this->helper('catalog/image')->init($_item, 'thumbnail')->resize(150); ?>" width="150" alt="<?php echo $this->htmlEscape($_item->getName()) ?>" title="<?php echo $this->htmlEscape($_item->getName()) ?>" class="img-thumbnail" /></a>
                 <div class="product-shop">
                     <h3 class="product-name"><a href="<?php echo $this->getProductUrl($_item) ?>"><?php echo $this->htmlEscape($_item->getName()) ?></a></h3>

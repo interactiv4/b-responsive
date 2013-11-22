@@ -125,6 +125,11 @@ footer {clear:both}
   line-height: 1;
   letter-spacing: -1px;
 }
+.cms-index-index {
+  .navbar {
+    margin-bottom: 0;
+  }
+}
 
 
 /* Global Messages  */
@@ -145,6 +150,15 @@ footer {clear:both}
 .messages li.note-msg, { background-color:#D9EDF7; border-color:#BCE8F1; color:#3A87AD; }
 .notice-msg,
 .messages li.notice-msg { background-color:#FCF8E3; border-color:#FBEED5; color:#C09853; }
+
+
+/* Cateogory page */
+.category-image {
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
 
 
 /* Shopping Cart */
@@ -174,15 +188,20 @@ footer {clear:both}
   }
   .product-name {
     margin-top: 0;
+    white-space: normal;
   }
   .unit-price {
     font-size: 16px;
     font-weight: bold;
     margin-bottom: 5px;
   }
+  td.cell-product-img {
+    min-width: 150px;
+  }
 }
 .product-name {
   font-size: 18px;
+  white-space: normal;
   a {
     text-decoration: none;
     color: $link;
@@ -344,7 +363,7 @@ footer {clear:both}
 }
 .add-to-links {
   .btn-link {
-    padding-left: 0;
+    padding: 0;
     .glyphicon {
       margin-right: 3px;
     }
@@ -449,7 +468,8 @@ footer {clear:both}
   }
   .section {
     .row {
-      margin: 10px 0;
+      margin: 0;
+      padding: 10px 0;
       .panel {
         padding: 0;
         margin-bottom: 0;
@@ -509,6 +529,15 @@ footer {clear:both}
   a {
     span.glyphicon {
       margin-right: 3px;
+    }
+  }
+}
+.reward-message {
+  margin: 5px;
+  .a-more {
+    a {
+      color: #2D6987;
+      font-weight: bold;
     }
   }
 }
@@ -627,6 +656,18 @@ footer {clear:both}
       }
     }
 }
+@media screen and (max-width: 480px) {
+  .category-products {
+    .products-grid {
+      .col-xs-4 {
+        display: block;
+        float: none;
+        margin: 0 auto 20px;
+        width: 70%;
+      }
+    }
+  }
+}
 @media screen and (max-width: 360px) {
   .panel-body {
     .item {
@@ -648,6 +689,21 @@ footer {clear:both}
     width: 100%;
     table {
       width: 100%;
+    }
+  }
+  .panel-crosssell {
+    .item {
+      width: 50%;
+    }
+  }
+  .category-products {
+    .products-grid {
+      .col-xs-4 {
+        display: block;
+        float: none;
+        margin: 0 auto 20px;
+        width: 80%;
+      }
     }
   }
 }

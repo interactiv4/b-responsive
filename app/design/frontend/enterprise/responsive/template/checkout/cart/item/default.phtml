@@ -29,7 +29,7 @@ $_item = $this->getItem();
 $isVisibleProduct = $_item->getProduct()->isVisibleInSiteVisibility();
 ?>
 <tr>
-    <td><?php if ($this->hasProductUrl()):?><a href="<?php echo $this->getProductUrl() ?>" title="<?php echo $this->htmlEscape($this->getProductName()) ?>" class="product-image"><?php endif;?><img src="<?php echo $this->getProductThumbnail()->resize(150); ?>" width="150" height="150" alt="<?php echo $this->htmlEscape($this->getProductName()) ?>" class="img-thumbnail" /><?php if ($this->hasProductUrl()):?></a><?php endif;?></td>
+    <td class="cell-product-img"><?php if ($this->hasProductUrl()):?><a href="<?php echo $this->getProductUrl() ?>" title="<?php echo $this->htmlEscape($this->getProductName()) ?>" class="product-image"><?php endif;?><img src="<?php echo $this->getProductThumbnail()->resize(150); ?>" width="150" height="150" alt="<?php echo $this->htmlEscape($this->getProductName()) ?>" class="img-thumbnail" /><?php if ($this->hasProductUrl()):?></a><?php endif;?></td>
     <td>
         <h2 class="product-name">
         <?php if ($this->hasProductUrl()):?>
