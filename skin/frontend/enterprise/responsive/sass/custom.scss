@@ -27,7 +27,25 @@ a {
     margin-top: 0;
 }
 .account-login .new-users, .account-login .registered-users {width:49%}
-.account-login {background:none}
+.account-login {
+  background:none;
+  margin-bottom: 20px;
+  .fieldset {
+    h2 {
+      margin: 0;
+    }
+  }
+}
+
+.font12 {
+  font-size: 12px;
+}
+.color-primary {
+  color: $link !important;
+}
+.mr-3 {
+  margin-right: 3px;
+}
 
 .product-name,  .category-products .price-box{font-size:14px}
 					  
@@ -63,7 +81,7 @@ a {
     
 }
 #checkout-step-login .col2-set {background:none}
-#newsletter-validate-detail input {display:block; margin-bottom: 20px}    
+#newsletter-validate-detail input {display:block; margin-bottom: 10px}    
 
 .old-price {
   font-size: 12px;
