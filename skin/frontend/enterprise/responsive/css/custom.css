@@ -688,6 +688,10 @@ footer {
   font-weight: bold;
 }
 
+#wishlist-table td {
+  padding: 5px;
+}
+
 @media (min-width: 768px) {
   .marketing {
     padding-left: 0;
