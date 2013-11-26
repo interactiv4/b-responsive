@@ -80,6 +80,22 @@ a {
 
 .account-login {
   background: none;
+  margin-bottom: 20px;
+}
+.account-login .fieldset h2 {
+  margin: 0;
+}
+
+.font12 {
+  font-size: 12px;
+}
+
+.color-primary {
+  color: #428bca !important;
+}
+
+.mr-3 {
+  margin-right: 3px;
 }
 
 .product-name, .category-products .price-box {
@@ -157,7 +173,7 @@ a {
 
 #newsletter-validate-detail input {
   display: block;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .old-price {
@@ -670,6 +686,10 @@ footer {
 .reward-message .a-more a {
   color: #2D6987;
   font-weight: bold;
+}
+
+#wishlist-table td {
+  padding: 5px;
 }
 
 @media (min-width: 768px) {
