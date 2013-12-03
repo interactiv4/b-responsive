@@ -692,6 +692,23 @@ footer {
   padding: 5px;
 }
 
+.toolbar {
+  font-size: 12px;
+}
+.toolbar .sort-by select {
+  margin: 15px 5px 15px 0;
+}
+.toolbar .navbar {
+  box-shadow: none;
+  margin-bottom: 5px;
+}
+.toolbar .pagination {
+  margin: 0;
+}
+.toolbar p.navbar-text {
+  margin: 15px 15px 15px 0;
+}
+
 @media (min-width: 768px) {
   .marketing {
     padding-left: 0;
@@ -743,6 +760,10 @@ footer {
 
   img {
     max-width: 100%;
+  }
+
+  .toolbar p.navbar-text {
+    margin-left: 15px;
   }
 }
 @media (max-width: 600px) {
@@ -854,5 +875,14 @@ footer {
   .products-list .col-xs-3 {
     margin-bottom: 20px;
     width: 50%;
+  }
+
+  .toolbar .sort-by,
+  .toolbar .limiter {
+    width: 100%;
+  }
+  .toolbar .limiter p.navbar-text,
+  .toolbar .limiter p.navbar-text + div {
+    margin-top: 0 !important;
   }
 }

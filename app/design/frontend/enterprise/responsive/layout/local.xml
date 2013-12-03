@@ -17,7 +17,7 @@
 		</reference>
 	</default>
 
-	<customer_account_login>
+	<!-- <customer_account_login>
         <reference name="customer_form_login">
             <action method="setTemplate"><template>customer/form/login.phtml</template></action>
         </reference>
@@ -36,5 +36,5 @@
         <reference name="checkout.onepage.billing">
             <action method="setTemplate"><template>checkout/onepage/billing.phtml</template></action>
         </reference>
-    </checkout_onepage_index>
+    </checkout_onepage_index> -->
 </layout>
