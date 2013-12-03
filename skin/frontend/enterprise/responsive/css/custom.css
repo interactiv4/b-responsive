@@ -43,8 +43,19 @@ a {
   float: right;
 }
 
+.header-panel {
+  line-height: 38px;
+  padding: 0;
+  min-height: 43px;
+  box-shadow: none;
+}
 .header-panel .links {
   float: none;
+}
+.header-panel .welcome-msg {
+  margin: 0;
+  line-height: 38px;
+  font-weight: normal;
 }
 
 .switches {
@@ -421,7 +432,6 @@ footer {
   line-height: 38px;
   padding: 0;
   text-transform: none;
-  margin-right: 10px;
   height: auto;
 }
 .top-cart .block-title strong {
