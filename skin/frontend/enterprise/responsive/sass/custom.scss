@@ -17,7 +17,19 @@ a {
 .category-view { margin:0}
 .breadcrumbs {background: none; padding:0px}
 .checkout-link {float:right}
-.header-panel .links {float:none}
+.header-panel {
+  line-height: 38px;
+  padding: 0;
+  min-height: 43px;
+  box-shadow: none;
+
+  .links { float:none}
+  .welcome-msg {
+    margin:0;
+    line-height: 38px;
+    font-weight: normal;
+  }
+}
 .switches {background:none; line-height: 38px;}
 .product-view {width: auto; background: none; margin:20px 0 0; padding:0;float:none; border:0}
 .page-title{ border-bottom: 1px solid #EEEEEE; margin: 0 0 10px; padding: 20px 0 9px; background: none }
@@ -275,7 +287,6 @@ footer {clear:both}
     line-height: $height;
     padding: 0;
     text-transform: none;
-    margin-right: 10px;
     height: auto;
     strong {
       background: none;
