@@ -48,6 +48,7 @@ a {
   padding: 0;
   min-height: 43px;
   box-shadow: none;
+  z-index: 999 !important;
 }
 .header-panel .links {
   float: none;
@@ -70,6 +71,19 @@ a {
   padding: 0;
   float: none;
   border: 0;
+}
+.product-view .short-description {
+  display: block;
+}
+.product-view .add-to-box {
+  margin-top: 10px;
+}
+.product-view .add-to-box .add-to-links {
+  margin-top: 10px !important;
+}
+
+.collateral-tabs .tab-content {
+  padding: 15px;
 }
 
 .page-title {
@@ -98,7 +112,7 @@ a {
 }
 
 .font12 {
-  font-size: 12px;
+  font-size: 12px !important;
 }
 
 .color-primary {
@@ -107,6 +121,10 @@ a {
 
 .mr-3 {
   margin-right: 3px;
+}
+
+a.product-image {
+  padding: 0;
 }
 
 .product-name, .category-products .price-box {
@@ -716,7 +734,51 @@ footer {
   margin: 0;
 }
 .toolbar p.navbar-text {
-  margin: 15px 15px 15px 0;
+  margin: 15px;
+}
+
+.add-to-cart .qty,
+.add-to-cart label {
+  display: inline-block;
+}
+.add-to-cart .qty {
+  width: 4em !important;
+  text-align: center;
+}
+
+.minimal-price-link .label {
+  color: #428bca;
+}
+
+.options-container-small dt {
+  display: block;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  float: none;
+}
+
+.box-collateral .product-details {
+  padding-right: 0;
+}
+.box-collateral .checkbox {
+  margin-top: 0;
+}
+.box-collateral .checkbox input[type="checkbox"] {
+  margin-top: 0;
+}
+.box-collateral .btn-link {
+  padding-left: 0;
+  color: #999;
+}
+.box-collateral .price-box {
+  margin-bottom: 5px;
+}
+.box-collateral .price-box p {
+  margin: 0;
+}
+.box-collateral .item {
+  margin-bottom: 10px;
 }
 
 @media (min-width: 768px) {
@@ -774,6 +836,14 @@ footer {
 
   .toolbar p.navbar-text {
     margin-left: 15px;
+  }
+
+  .box-collateral .product-details {
+    padding: 0;
+    float: none;
+    width: 100%;
+    clear: both;
+    margin-top: 10px;
   }
 }
 @media (max-width: 600px) {
@@ -894,5 +964,20 @@ footer {
   .toolbar .limiter p.navbar-text,
   .toolbar .limiter p.navbar-text + div {
     margin-top: 0 !important;
+  }
+  .toolbar > .row .col-xs-8 {
+    width: 100%;
+    clear: both;
+    float: none;
+    text-align: center !important;
+  }
+  .toolbar > .row .view-mode {
+    display: none;
+  }
+
+  .box-collateral .item {
+    width: 100%;
+    float: none;
+    clear: both;
   }
 }

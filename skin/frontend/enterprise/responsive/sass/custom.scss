@@ -22,6 +22,7 @@ a {
   padding: 0;
   min-height: 43px;
   box-shadow: none;
+  z-index: 999 !important;
 
   .links { float:none}
   .welcome-msg {
@@ -31,7 +32,28 @@ a {
   }
 }
 .switches {background:none; line-height: 38px;}
-.product-view {width: auto; background: none; margin:20px 0 0; padding:0;float:none; border:0}
+.product-view {
+  width: auto;
+  background: none;
+  margin:20px 0 0;
+  padding:0;
+  float:none;
+  border:0;
+  .short-description {
+    display: block;
+  }
+  .add-to-box {
+    margin-top: 10px;
+    .add-to-links {
+      margin-top: 10px !important;
+    }
+  }
+}
+.collateral-tabs {
+  .tab-content {
+    padding: 15px;
+  }
+}
 .page-title{ border-bottom: 1px solid #EEEEEE; margin: 0 0 10px; padding: 20px 0 9px; background: none }
 .page-title h1, .page-title h2 {
     color: #5A5A5A;
@@ -50,13 +72,16 @@ a {
 }
 
 .font12 {
-  font-size: 12px;
+  font-size: 12px !important;
 }
 .color-primary {
   color: $link !important;
 }
 .mr-3 {
   margin-right: 3px;
+}
+a.product-image {
+  padding: 0;
 }
 
 .product-name,  .category-products .price-box{font-size:14px}
@@ -594,7 +619,55 @@ footer {clear:both}
     margin: 0;
   }
   p.navbar-text {
-    margin: 15px 15px 15px 0;
+    margin: 15px;
+  }
+}
+
+.add-to-cart {
+  .qty,
+  label {
+    display: inline-block;
+  }
+  .qty {
+    width: 4em !important;
+    text-align: center;
+  }
+}
+
+.minimal-price-link {
+  .label { color: $link;}
+}
+
+.options-container-small {
+  dt {
+    display: block;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    float: none;
+  }
+}
+
+.box-collateral {
+  .product-details {
+    padding-right: 0;
+  }
+  .checkbox {
+    margin-top: 0;
+    input[type="checkbox"] {
+      margin-top: 0;
+    }
+  }
+  .btn-link {
+    padding-left: 0;
+    color: #999;
+  }
+  .price-box {
+    margin-bottom: 5px;
+    p { margin: 0;}
+  }
+  .item {
+    margin-bottom: 10px;
   }
 }
 
@@ -649,6 +722,13 @@ footer {clear:both}
 
   .toolbar {
     p.navbar-text { margin-left: 15px;}
+  }
+  .box-collateral .product-details {
+    padding: 0;
+    float: none;
+    width: 100%;
+    clear: both;
+    margin-top: 10px;
   }
 }
 
@@ -783,6 +863,22 @@ footer {clear:both}
     .limiter {
       p.navbar-text,
       p.navbar-text + div { margin-top: 0 !important;}
+    }
+    & > .row {
+      .col-xs-8 {
+        width: 100%;
+        clear: both;
+        float: none;
+        text-align: center !important;
+      }
+      .view-mode { display: none;}
+    }
+  }
+  .box-collateral {
+    .item {
+      width: 100%;
+      float: none;
+      clear: both;
     }
   }
 }
