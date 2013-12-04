@@ -12,7 +12,7 @@ Magento Responsive Theme built with Twitter Bootstrap v3
 </ul>
 ================
 
-![alt tag](http://www.redlightblinking.com/store/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/b/o/boostrap-responsive.png)
+![alt tag](http://www.redlightblinking.com/wp-content/uploads/2013/12/boostrap-responsive.png)
 
 ================
 
