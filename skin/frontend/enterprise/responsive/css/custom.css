@@ -127,6 +127,10 @@ a.product-image {
   padding: 0;
 }
 
+.page.container > .span12 {
+  min-height: 400px;
+}
+
 .product-name, .category-products .price-box {
   font-size: 14px;
 }
@@ -779,6 +783,13 @@ footer {
 }
 .box-collateral .item {
   margin-bottom: 10px;
+}
+
+.results-view {
+  margin: 0;
+}
+.results-view .recommendations {
+  padding: 20px 0 0;
 }
 
 @media (min-width: 768px) {

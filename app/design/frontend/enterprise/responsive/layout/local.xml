@@ -17,27 +17,6 @@
 		</reference>
 	</default>
 
-	<!-- <customer_account_login>
-        <reference name="customer_form_login">
-            <action method="setTemplate"><template>customer/form/login.phtml</template></action>
-        </reference>
-    </customer_account_login>
-
-    <customer_account_create>
-        <reference name="customer_form_register">
-            <action method="setTemplate"><template>customer/form/register.phtml</template></action>
-        </reference>
-    </customer_account_create>
-
-	<checkout_onepage_index>
-        <reference name="checkout.onepage.login">
-            <action method="setTemplate"><template>checkout/onepage/login.phtml</template></action>
-        </reference>
-        <reference name="checkout.onepage.billing">
-            <action method="setTemplate"><template>checkout/onepage/billing.phtml</template></action>
-        </reference>
-    </checkout_onepage_index> -->
-
     <catalog_product_view>
         <remove name="reward.tooltip.tag" />
     </catalog_product_view>

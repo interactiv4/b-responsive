@@ -20,10 +20,22 @@
  *
  * @category    design
  * @package     base_default
- * @copyright   Copyright (c) 2010 Magento Inc. (http://www.magentocommerce.com)
+ * @copyright   Copyright (c) 2013 Magento Inc. (http://www.magentocommerce.com)
  * @license     http://www.magentocommerce.com/license/enterprise-edition
  */
 ?>
-<div class="order-review" id="checkout-review-load">
-    <!-- Content loaded dynamically -->
-</div>
+<?php if ($this->getCheckout()->getStepData('billing', 'complete')): ?>
+<dt class="complete">
+    <?php echo $this->__('Billing Address') ?>
+    <a
+        href="#billing"
+        onclick="checkout.changeSection('opc-billing'); return false;" class="f-right"><span class="glyphicon glyphicon-edit"></span><?php //echo $this->__('Change') ?></a>
+</dt>
+<dd class="complete">
+    <address><?php echo $this->getBilling()->format('html') ?></address>
+</dd>
+<?php else: ?>
+<dt>
+    <?php echo $this->__('Billing Address') ?>
+</dt>
+<?php endif; ?>

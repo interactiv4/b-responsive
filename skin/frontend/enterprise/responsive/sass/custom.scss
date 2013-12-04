@@ -84,6 +84,10 @@ a.product-image {
   padding: 0;
 }
 
+.page.container {
+  & > .span12 { min-height: 400px;}
+}
+
 .product-name,  .category-products .price-box{font-size:14px}
 					  
 .product-essential .price-box {font-size:18px; margin-bottom:15px}
@@ -668,6 +672,13 @@ footer {clear:both}
   }
   .item {
     margin-bottom: 10px;
+  }
+}
+
+.results-view {
+  margin: 0;
+  .recommendations {
+    padding: 20px 0 0;
   }
 }
 
