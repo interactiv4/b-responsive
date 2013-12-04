@@ -1,4 +1,4 @@
-responsive-boostrap
+b-responsive
 ================
 
 Magento Responsive Theme built with Twitter Bootstrap v3
@@ -16,12 +16,16 @@ Magento Responsive Theme built with Twitter Bootstrap v3
 
 ================
 
+DEMO
+<a href="http://responsive.redlightblinking.com/" target="_blank">responsive.redlightblinking.com</a>
+
+================
+
 Currently compatiable with Magento Enterprise 1.13
 Additional versions and community support coming soon...
 
 ================
-
-See <a href="http://getbootstrap.com" target="_blank">getbootstrap.com</a> for more info
+Built with Twitter Bootstrap v3 framework. See <a href="http://getbootstrap.com" target="_blank">getbootstrap.com</a> for more info and docs.
 
 ================
 
