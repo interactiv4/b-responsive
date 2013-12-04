@@ -110,6 +110,15 @@ a {
 .account-login .fieldset h2 {
   margin: 0;
 }
+.account-login p.required {
+  padding-left: 0;
+  text-align: left;
+}
+
+.split-button.light strong {
+  font-size: 14px;
+  text-decoration: none !important;
+}
 
 .font12 {
   font-size: 12px !important;
@@ -145,7 +154,7 @@ a.product-image {
 }
 
 .sidebar .block .block-title {
-  background-color: #888888;
+  background-color: #555555;
   color: #FFFFFF;
   padding: 10px;
 }
@@ -991,11 +1000,4 @@ footer {
     float: none;
     clear: both;
   }
-}
-.header-panel.navbar.navbar-default.row {
-    border-left: medium none;
-    border-right: medium none;
-}
-.header-panel .glyphicon {
-    margin: 2px;
 }

@@ -69,6 +69,14 @@ a {
       margin: 0;
     }
   }
+  p.required {
+    padding-left: 0;
+    text-align: left;
+  }
+}
+.split-button.light strong {
+  font-size: 14px;
+  text-decoration: none !important;
 }
 
 .font12 {
