@@ -21,8 +21,13 @@ DEMO
 
 ================
 
-Currently compatiable with Magento Enterprise 1.13
-Additional versions and community support coming soon...
+Currently compatiable with:
+Magento Enterprise 1.13
+IE 9.0, 10.0, 11.0
+Safari, Firefox, Chrome, Android and iOS
+
+Note: this theme is currenlty not compatialbe with Magento Community or IE 8.
+Additional browsers, versions and community support coming soon...
 
 ================
 Built with Twitter Bootstrap v3 framework. See <a href="http://getbootstrap.com" target="_blank">getbootstrap.com</a> for more info and docs.
@@ -32,4 +37,4 @@ Built with Twitter Bootstrap v3 framework. See <a href="http://getbootstrap.com"
 Collaborate! Interested in helping with our project to add to the best responsive boilerplate theme for Magento?
 Please do! Grab some issues and send some pull requests :)
 
-Support through github only.
+Support through github only. See the Issues and Wiki.
