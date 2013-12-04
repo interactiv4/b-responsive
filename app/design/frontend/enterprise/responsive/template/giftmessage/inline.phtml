@@ -1,0 +1,434 @@
+<?php
+/**
+ * Magento Enterprise Edition
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Magento Enterprise Edition License
+ * that is bundled with this package in the file LICENSE_EE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.magentocommerce.com/license/enterprise-edition
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     enterprise_default
+ * @copyright   Copyright (c) 2010 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://www.magentocommerce.com/license/enterprise-edition
+ */
+?>
+<?php if(!$this->getDontDisplayContainer()): ?>
+<script type="text/javascript">
+//<![CDATA[
+if(!window.toogleVisibilityOnObjects) {
+    var toogleVisibilityOnObjects = function(source, objects) {
+        if($(source) && $(source).checked) {
+            objects.each(function(item){
+                $(item).show();
+                $$('#' + item + ' .input-text').each(function(item) {
+                    item.removeClassName('validation-passed');
+                });
+            });
+        } else {
+            objects.each(function(item){
+                $(item).hide();
+                $$('#' + item + ' .input-text').each(function(sitem) {
+                    sitem.addClassName('validation-passed');
+                });
+                $$('#' + item + ' .giftmessage-area').each(function(sitem) {
+                    sitem.value = '';
+                });
+                $$('#' + item + ' .checkbox').each(function(sitem) {
+                    sitem.checked = false;
+                });
+                $$('#' + item + ' .select').each(function(sitem) {
+                    sitem.value = '';
+                });
+                $$('#' + item + ' .price-box').each(function(sitem) {
+                    sitem.addClassName('no-display');
+                });
+            });
+        }
+    }
+}
+
+if(!window.toogleVisibility) {
+    var toogleVisibility = function(objects, show) {
+        objects.each(function(item){
+            if (show) {
+                $(item).show();
+                $(item).removeClassName('no-display');
+            }
+            else {
+                $(item).hide();
+                $(item).addClassName('no-display');
+            }
+        });
+    }
+}
+
+if(!window.displayContainer) {
+    var displayContainer = function(source) {
+       if ($(source)) {
+           if ($(source).hasClassName('no-display')) {
+               $(source).removeClassName('no-display');
+           } else {
+               $(source).addClassName('no-display');
+           }
+       }
+       return false;
+    }
+}
+
+if(!window.toogleRequired) {
+    var toogleRequired = function (source, objects)
+    {
+        if(!$(source).value.blank()) {
+            objects.each(function(item) {
+               $(item).addClassName('required-entry');
+            });
+        } else {
+            objects.each(function(item) {
+                if (typeof shippingMethod != 'undefined' && shippingMethod.validator) {
+                   shippingMethod.validator.reset(item);
+                }
+                $(item).removeClassName('required-entry');
+            });
+        }
+    }
+}
+
+if(window.shipping) {
+
+shipping.onSave = function(evt){
+    new Ajax.Updater('onepage-checkout-shipping-method-additional-load', '<?php echo $this->getAdditionalUrl(); ?>', {onSuccess: function() {
+          this.nextStep(evt);
+    }.bind(this), evalScripts:true});
+}.bindAsEventListener(shipping);
+
+billing.onSave = function(evt){
+    new Ajax.Updater('onepage-checkout-shipping-method-additional-load', '<?php echo $this->getAdditionalUrl(); ?>', {onSuccess: function() {
+          this.nextStep(evt);
+    }.bind(this), evalScripts:true});
+}.bindAsEventListener(billing);
+
+}
+//]]>
+</script>
+<?php endif ?>
+
+<?php switch ($this->getType()): ?>
+<?php case 'onepage_checkout': ?>
+    <!-- div class="no-display panel panel-default" id="add-gift-options-<?php echo $this->getEntity()->getId() ?>">
+        <div class="panel-heading">
+            <h3 class="panel-title"><?php echo $this->__('Do you have any gift items in your order?'); ?></h3>
+        </div>
+        <div class="panel-body">
+            <div class="form-group">
+                <div class="checkbox">
+                    <input type="checkbox" name="allow_gift_options" id="allow_gift_options" value="1" onclick="toogleVisibilityOnObjects(this, ['allow-gift-options-container']);"<?php if($this->getItemsHasMesssages() || $this->getEntityHasMessage()): ?> checked="checked"<?php endif; ?> class="checkbox" />
+                    <label for="allow_gift_options"><?php echo $this->__('Add gift options') ?></label>
+                </div>
+            </div>
+
+            <div class="gift-message-form" id="allow-gift-options-container">
+            <div class="inner-box list-group">
+
+                <div id="add-gift-options-for-order-<?php echo $this->getEntity()->getId() ?>" class="list-group-item no-display">
+                    <h4><?php echo $this->__('Gift Options for the Entire Order'); ?></h4>
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <input type="checkbox" name="allow_gift_messages_for_order" id="allow_gift_options_for_order" value="1" onclick="toogleVisibilityOnObjects(this, ['allow-gift-options-for-order-container']);"<?php if($this->getEntityHasMessage()): ?> checked="checked"<?php endif; ?> class="checkbox" />
+                            <label for="allow_gift_options_for_order"><?php echo $this->__('Add gift options for the Entire Order') ?></label>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="allow-gift-options-for-order-container" class="gift-options-for-order list-group-item">
+                    <div class="options-order-container" id="options-order-container-<?php echo $this->getEntity()->getId() ?>"></div>
+                    <input type="hidden" name="giftoptions[<?php echo $this->getEntity()->getId() ?>][type]" value="quote" />
+
+                    <?php if ($this->isMessagesAvailable()): ?>
+                    <div><a href="#" onclick="return displayContainer('allow-gift-messages-for-order-container')"><?php echo $this->__('Gift Message') ?></a></div>
+                    <div id="allow-gift-messages-for-order-container" class="no-display">
+                        <div class="fieldset">
+                            <input type="hidden" name="giftmessage[<?php echo $this->getEntity()->getId() ?>][type]"  value="quote" />
+                            <p><?php echo $this->__('You can leave a box blank if you don\'t wish to add a gift message for whole order.') ?></p>
+                            <ul class="form-list">
+                                <li class="fields">
+                                    <div class="field">
+                                        <label for="gift-message-whole-from"><?php echo $this->__('From') ?></label>
+                                        <div class="input-box">
+                                            <input type="text" name="giftmessage[<?php echo $this->getEntity()->getId() ?>][from]" id="gift-message-whole-from" title="<?php echo $this->__('From') ?>"  value="<?php echo $this->getEscaped($this->getMessage()->getSender(), $this->getDefaultFrom()) ?>" class="input-text validation-passed" />
+                                        </div>
+                                    </div>
+                                    <div class="field">
+                                        <label for="gift-message-whole-to"><?php echo $this->__('To') ?></label>
+                                        <div class="input-box">
+                                            <input type="text" name="giftmessage[<?php echo $this->getEntity()->getId() ?>][to]" id="gift-message-whole-to" title="<?php echo $this->__('To') ?>" value="<?php echo $this->getEscaped($this->getMessage()->getRecipient(), $this->getDefaultTo()) ?>" class="input-text validation-passed" />
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <label for="gift-message-whole-message"><?php echo $this->__('Message') ?></label>
+                                    <div class="input-box">
+                                        <textarea id="gift-message-whole-message" onchange="toogleRequired('gift-message-whole-message', ['gift-message-whole-from','gift-message-whole-to'])" class="input-text validation-passed giftmessage-area" name="giftmessage[<?php echo $this->getEntity()->getId() ?>][message]" title="<?php echo $this->__('Message') ?>" rows="5" cols="10"><?php echo $this->getEscaped($this->getMessage()->getMessage()) ?></textarea>
+                                    </div>
+                                </li>
+                            </ul>
+                            <script type="text/javascript">
+                            //<![CDATA[
+                                toogleVisibility(['add-gift-options-<?php echo $this->getEntity()->getId() ?>','add-gift-options-for-order-<?php echo $this->getEntity()->getId() ?>'], true);
+                                toogleRequired('gift-message-whole-message', ['gift-message-whole-from','gift-message-whole-to']);
+                            //]]>
+                            </script>
+                        </div>
+                   </div>
+                   <?php endif ?>
+                </div>
+
+            <div id="add-gift-options-for-items-<?php echo $this->getEntity()->getId() ?>" class="list-group-item no-display">
+                <h4><?php echo $this->__('Gift Options for Individual Items'); ?></h4>
+                <div class="form-group">
+                    <div class="checkbox">
+                        <input type="checkbox" name="allow_gift_options_for_items" id="allow_gift_options_for_items" value="1" onclick="toogleVisibilityOnObjects(this, ['allow-gift-options-for-items-container']);"<?php if($this->getItemsHasMesssages()): ?> checked="checked"<?php endif; ?> class="checkbox" />
+                        <label for="allow_gift_options_for_items"><?php echo $this->__('Add gift options for Individual Items') ?></label>
+                    </div>
+                </div>
+            </div>
+
+            <div id="allow-gift-options-for-items-container" class="list-group-item">
+                <ol>
+                <?php foreach($this->getItems() as $_index=>$_item): ?>
+                <?php $_product=$_item->getProduct() ?>
+
+                <li class="gift-item">
+                     <p class="number"><?php echo $this->__('Item %d of %d', $_index+1, $this->countItems()) ?></p>
+                     <div class="product-img-box">
+                         <p class="product-image">
+                             <img src="<?php echo $this->helper('catalog/image')->init($_product, 'thumbnail')->resize(75); ?>" width="75" height="75" alt="<?php echo $this->htmlEscape($_product->getName()) ?>"title="<?php echo $this->htmlEscape($_product->getName()) ?>" />
+                         </p>
+                         <h5 class="product-name"><?php echo $this->htmlEscape($_product->getName()) ?></h5>
+                     </div>
+                     <div class="fieldset">
+                         <input type="hidden" name="giftoptions[<?php echo $_item->getId() ?>][type]" value="quote_item" />
+                         <div class="options-items-container" id="options-items-container-<?php echo $this->getEntity()->getId() ?>-<?php echo $_item->getId() ?>"></div>
+
+                         <?php if ($this->isItemMessagesAvailable($_item)): ?>
+                         <p><a href="#" onclick="return displayContainer('gift-messages-for-item-container-<?php echo $_item->getId() ?>')"><?php echo $this->__('Gift Message') ?></a></p>
+                         <div id="gift-messages-for-item-container-<?php echo $_item->getId() ?>"  class="no-display">
+                         <p><?php echo $this->__('You can leave a box blank if you don\'t wish to add a gift message for the item.') ?></p>
+                         <input type="hidden" name="giftmessage[<?php echo $_item->getId() ?>][type]" value="quote_item" />
+                          <ul class="form-list">
+                             <li class="fields">
+                                 <div class="field">
+                                     <label for="gift-message-<?php echo $_item->getId() ?>-from"><?php echo $this->__('From') ?></label>
+                                     <div class="input-box">
+                                         <input type="text" name="giftmessage[<?php echo $_item->getId() ?>][from]" id="gift-message-<?php echo $_item->getId() ?>-from" title="<?php echo $this->__('From') ?>" value="<?php echo $this->getEscaped($this->getMessage($_item)->getSender(), $this->getDefaultFrom()) ?>" class="input-text validation-passed" />
+                                     </div>
+                                 </div>
+                                 <div class="field">
+                                    <label for="gift-message-<?php echo $_item->getId() ?>-to"><?php echo $this->__('To') ?></label>
+                                    <div class="input-box">
+                                        <input type="text" name="giftmessage[<?php echo $_item->getId() ?>][to]" id="gift-message-<?php echo $_item->getId() ?>-to" title="<?php echo $this->__('To') ?>" value="<?php echo $this->getEscaped($this->getMessage($_item)->getRecipient(), $this->getDefaultTo()) ?>" class="input-text validation-passed" />
+                                    </div>
+                                 </div>
+                             </li>
+                             <li>
+                                 <label for="gift-message-<?php echo $_item->getId() ?>-message"><?php echo $this->__('Message') ?></label>
+                                 <div class="input-box">
+                                    <textarea id="gift-message-<?php echo $_item->getId() ?>-message" onchange="toogleRequired('gift-message-<?php echo $_item->getId() ?>-message', ['gift-message-<?php echo $_item->getId() ?>-from','gift-message-<?php echo $_item->getId() ?>-to'])" class="input-text validation-passed giftmessage-area" name="giftmessage[<?php echo $_item->getId() ?>][message]" title="<?php echo $this->__('Message') ?>" rows="5" cols="40"><?php echo $this->getEscaped($this->getMessage($_item)->getMessage()) ?></textarea>
+                                 </div>
+                             </li>
+                         </ul>
+                         </div>
+                         <script type="text/javascript">
+                         //<![CDATA[
+                            toogleRequired('gift-message-<?php echo $_item->getId() ?>-message', ['gift-message-<?php echo $_item->getId() ?>-from','gift-message-<?php echo $_item->getId() ?>-to']);
+                         //]]>
+                         </script>
+                         <?php endif; ?>
+                     </div>
+                </li>
+
+                <?php endforeach; ?>
+                </ol>
+            </div>
+            <?php if ($this->isItemsAvailable()): ?>
+            <script type="text/javascript">
+            //<![CDATA[
+                toogleVisibility(['add-gift-options-<?php echo $this->getEntity()->getId() ?>','add-gift-options-for-items-<?php echo $this->getEntity()->getId() ?>'], true);
+            //]]>
+            </script>
+            <?php endif; ?>
+            <div class="extra-options-container" id="extra-options-container-<?php echo $this->getEntity()->getId() ?>"></div>
+
+            </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+    //<![CDATA[
+        toogleVisibilityOnObjects('allow_gift_options', ['allow-gift-options-container']);
+        toogleVisibilityOnObjects('allow_gift_options_for_order', ['allow-gift-options-for-order-container']);
+        toogleVisibilityOnObjects('allow_gift_options_for_items', ['allow-gift-options-for-items-container']);
+    //]]>
+    </script-->
+<?php break; ?>
+<?php case 'multishipping_adress_checkbox': ?>
+<?php break; ?>
+
+<?php case 'multishipping_adress': ?>
+
+    <div class="add-gift-message no-display" id="add-gift-options-<?php echo $this->getEntity()->getId() ?>">
+        <h3><?php echo $this->__('Do you have any gift items in your order?'); ?></h3>
+        <p>
+            <input type="checkbox" name="allow_gift_options_<?php echo $this->getEntity()->getId() ?>" id="allow_gift_options_<?php echo $this->getEntity()->getId() ?>" value="1" onclick="toogleVisibilityOnObjects(this, ['allow-gift-options-container-<?php echo $this->getEntity()->getId() ?>']);"<?php if($this->getItemsHasMesssages() || $this->getEntityHasMessage()): ?> checked="checked"<?php endif; ?> class="checkbox" />
+            <label for="allow_gift_options_<?php echo $this->getEntity()->getId() ?>"><?php echo $this->__('Add gift options') ?></label>
+        </p>
+    </div>
+
+    <div class="gift-message-form" id="allow-gift-options-container-<?php echo $this->getEntity()->getId() ?>">
+    <div class="inner-box">
+
+        <div id="add-gift-options-for-order-<?php echo $this->getEntity()->getId() ?>" class="no-display">
+            <h4><?php echo $this->__('Gift Options for this address.'); ?></h4>
+            <p>
+                <input type="checkbox" name="allow_gift_options_for_order_<?php echo $this->getEntity()->getId() ?>" id="allow_gift_options_for_order_<?php echo $this->getEntity()->getId() ?>" value="1" onclick="toogleVisibilityOnObjects(this, ['allow-gift-options-for-order-container-<?php echo $this->getEntity()->getId() ?>']);"<?php if($this->getEntityHasMessage()): ?> checked="checked"<?php endif; ?> class="checkbox" />
+                <label for="allow_gift_options_for_order_<?php echo $this->getEntity()->getId() ?>"><?php echo $this->__('Add gift options for the Entire Order') ?></label>
+            </p>
+        </div>
+
+        <div class="gift-options-for-order" id="allow-gift-options-for-order-container-<?php echo $this->getEntity()->getId() ?>">
+            <div class="options-order-container" id="options-order-container-<?php echo $this->getEntity()->getId() ?>"></div>
+            <input type="hidden" name="giftoptions[<?php echo $this->getEntity()->getId() ?>][type]" value="quote_address" />
+            <?php if ($this->isMessagesAvailable()): ?>
+                <div><a href="#" onclick="return displayContainer('gift-messages-for-order-container-<?php echo $this->getEntity()->getId() ?>')"><?php echo $this->__('Gift Message') ?></a></div>
+                <div id="gift-messages-for-order-container-<?php echo $this->getEntity()->getId() ?>" class="no-display">
+                <p><?php echo $this->__('You can leave this box blank if you do not wish to add a gift message for this address.') ?></p>
+                <div class="fieldset">
+                <input type="hidden" name="giftmessage[<?php echo $this->getEntity()->getId() ?>][type]" value="quote_address" />
+                <ul class="form-list">
+                     <li class="fields">
+                        <div class="field">
+                            <div class="input-box">
+                                <label for="gift-message-<?php echo $this->getEntity()->getId() ?>-from"><?php echo $this->__('From') ?></label>
+                                <input type="text" name="giftmessage[<?php echo $this->getEntity()->getId() ?>][from]" id="gift-message-<?php echo $this->getEntity()->getId() ?>-from" title="<?php echo $this->__('From') ?>" value="<?php echo $this->getEscaped($this->getMessage()->getSender(), $this->getDefaultFrom()) ?>" class="input-text validation-passed" />
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="input-box">
+                                <label for="gift-message-<?php echo $this->getEntity()->getId() ?>-to"><?php echo $this->__('To') ?></label>
+                                <input type="text" name="giftmessage[<?php echo $this->getEntity()->getId() ?>][to]" id="gift-message-<?php echo $this->getEntity()->getId() ?>-to" title="<?php echo $this->__('To') ?>" value="<?php echo $this->getEscaped($this->getMessage()->getRecipient(), $this->getDefaultTo()) ?>" class="input-text validation-passed" />
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <label for="gift-message-<?php echo $this->getEntity()->getId() ?>-message"><?php echo $this->__('Message') ?></label>
+                        <div class="input-box">
+                            <textarea id="gift-message-<?php echo $this->getEntity()->getId() ?>-message" onchange="toogleRequired('gift-message-<?php echo $this->getEntity()->getId() ?>-message', ['gift-message-<?php echo $this->getEntity()->getId() ?>-from','gift-message-<?php echo $this->getEntity()->getId() ?>-to'])" class="input-text validation-passed giftmessage-area" name="giftmessage[<?php echo $this->getEntity()->getId() ?>][message]" title="<?php echo $this->__('Message') ?>" rows="5" cols="40"><?php echo $this->getEscaped($this->getMessage()->getMessage()) ?></textarea>
+                        </div>
+                    </li>
+                </ul>
+                </div>
+                <script type="text/javascript">
+                //<![CDATA[
+                    var shippingMethod = new VarienForm('shipping_method_form');
+                    toogleRequired('gift-message-<?php echo $this->getEntity()->getId() ?>-message', ['gift-message-<?php echo $this->getEntity()->getId() ?>-from','gift-message-<?php echo $this->getEntity()->getId() ?>-to']);
+                    toogleVisibility(['add-gift-options-<?php echo $this->getEntity()->getId() ?>','add-gift-options-for-order-<?php echo $this->getEntity()->getId() ?>'], true);
+                //]]>
+                </script>
+             </div>
+             <?php endif; ?>
+        </div>
+
+        <div id="add-gift-options-for-items-<?php echo $this->getEntity()->getId() ?>" class="no-display">
+            <h4><?php echo $this->__('Gift Options for Individual Items'); ?></h4>
+            <p>
+                <input type="checkbox" name="allow_gift_options_for_items_<?php echo $this->getEntity()->getId() ?>" id="allow_gift_options_for_items_<?php echo $this->getEntity()->getId() ?>" value="1" onclick="toogleVisibilityOnObjects(this, ['allow-gift-options-for-items-container-<?php echo $this->getEntity()->getId() ?>']);"<?php if($this->getItemsHasMesssages()): ?> checked="checked"<?php endif; ?> class="checkbox" />
+                <label for="allow_gift_options_for_items_<?php echo $this->getEntity()->getId() ?>"><?php echo $this->__('Add gift options for Individual Items') ?></label>
+            </p>
+        </div>
+
+        <div id="allow-gift-options-for-items-container-<?php echo $this->getEntity()->getId() ?>">
+             <ol>
+             <?php foreach($this->getItems() as $_index=>$_item): ?>
+             <?php $_product=$_item->getProduct() ?>
+                 <li class="gift-item">
+                     <p class="number"><?php echo $this->__('Item %d of %d', $_index+1, $this->countItems()) ?></p>
+                     <div class="product-img-box">
+                         <p class="product-image"><img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(75); ?>" width="75" height="75" alt="<?php echo $this->htmlEscape($_product->getName()) ?>" title="<?php echo $this->htmlEscape($_product->getName()) ?>" /></p>
+                         <h5 class="product-name"><?php echo $this->htmlEscape($_product->getName()) ?></h5>
+                     </div>
+                     <div class="fieldset">
+                         <div class="options-items-container" id="options-items-container-<?php echo $this->getEntity()->getId() ?>-<?php echo $_item->getId() ?>"></div>
+                         <input type="hidden" name="giftoptions[<?php echo $_item->getId() ?>][type]" value="quote_address_item" />
+                         <input type="hidden" name="giftoptions[<?php echo $_item->getId() ?>][address]" value="<?php echo $this->getEntity()->getId()?>" />
+
+                         <?php if ($this->isItemMessagesAvailable($_item)): ?>
+                         <p><a href="#" onclick="return displayContainer('gift-messages-for-item-container-<?php echo $_item->getId() ?>')"><?php echo $this->__('Gift Message') ?></a></p>
+                         <div id="gift-messages-for-item-container-<?php echo $_item->getId() ?>" class="no-display">
+                         <p><small><?php echo $this->__('You can leave this box blank if you do not wish to add a gift message for the item.') ?></small></p>
+                         <input type="hidden" name="giftmessage[<?php echo $_item->getId() ?>][type]" value="quote_address_item" />
+                         <input type="hidden" name="giftmessage[<?php echo $_item->getId() ?>][address]" value="<?php echo $this->getEntity()->getId()?>" />
+
+                         <ul class="form-list">
+                             <li class="fields">
+                                 <div class="field">
+                                     <label for="gift-message-<?php echo $_item->getId() ?>-from"><?php echo $this->__('From') ?></label>
+                                     <div class="input-box">
+                                         <input type="text" name="giftmessage[<?php echo $_item->getId() ?>][from]" id="gift-message-<?php echo $_item->getId() ?>-from" title="<?php echo $this->__('From') ?>"  value="<?php echo $this->getEscaped($this->getMessage($_item)->getSender(), $this->getDefaultFrom()) ?>" class="input-text validation-passed" />
+                                     </div>
+                                 </div>
+                                 <div class="field">
+                                    <label for="gift-message-<?php echo $_item->getId() ?>-to"><?php echo $this->__('To') ?></label>
+                                    <div class="input-box">
+                                        <input type="text" name="giftmessage[<?php echo $_item->getId() ?>][to]" id="gift-message-<?php echo $_item->getId() ?>-to" title="<?php echo $this->__('To') ?>" value="<?php echo $this->getEscaped($this->getMessage($_item)->getRecipient(), $this->getDefaultTo()) ?>" class="input-text validation-passed" />
+                                    </div>
+                                </div>
+                             </li>
+                             <li>
+                                 <label for="gift-message-<?php echo $_item->getId() ?>-message"><?php echo $this->__('Message') ?></label>
+                                 <div class="input-box">
+                                    <textarea id="gift-message-<?php echo $_item->getId() ?>-message" onchange="toogleRequired('gift-message-<?php echo $_item->getId() ?>-message', ['gift-message-<?php echo $_item->getId() ?>-from','gift-message-<?php echo $_item->getId() ?>-to'])" class="input-text validation-passed  giftmessage-area" name="giftmessage[<?php echo $_item->getId() ?>][message]" title="<?php echo $this->__('Message') ?>" rows="5" cols="10"><?php echo $this->getEscaped($this->getMessage($_item)->getMessage()) ?></textarea>
+                                 </div>
+                             </li>
+                         </ul>
+                         </div>
+                         <script type="text/javascript">
+                         //<![CDATA[
+                             toogleRequired('gift-message-<?php echo $_item->getId() ?>-message', ['gift-message-<?php echo $_item->getId() ?>-from','gift-message-<?php echo $_item->getId() ?>-to']);
+                         //]]>
+                         </script>
+                         <?php endif; ?>
+                     </div>
+                 </li>
+             <?php endforeach; ?>
+             </ol>
+        </div>
+        <?php if ($this->isItemsAvailable()): ?>
+        <script type="text/javascript">
+        //<![CDATA[
+            toogleVisibility(['add-gift-options-<?php echo $this->getEntity()->getId() ?>','add-gift-options-for-items-<?php echo $this->getEntity()->getId() ?>'], true);
+        //]]>
+        </script>
+        <?php endif; ?>
+        <div class="extra-options-container" id="extra-options-container-<?php echo $this->getEntity()->getId() ?>"></div>
+    </div>
+    </div>
+    <script type="text/javascript">
+    //<![CDATA[
+        toogleVisibilityOnObjects('allow_gift_options_<?php echo $this->getEntity()->getId() ?>', ['allow-gift-options-container-<?php echo $this->getEntity()->getId() ?>']);
+        toogleVisibilityOnObjects('allow_gift_options_for_order_<?php echo $this->getEntity()->getId() ?>', ['allow-gift-options-for-order-container-<?php echo $this->getEntity()->getId() ?>']);
+        toogleVisibilityOnObjects('allow_gift_options_for_items_<?php echo $this->getEntity()->getId() ?>', ['allow-gift-options-for-items-container-<?php echo $this->getEntity()->getId() ?>']);
+    //]]>
+    </script>
+    <?php break; ?>
+<?php endswitch ?>
