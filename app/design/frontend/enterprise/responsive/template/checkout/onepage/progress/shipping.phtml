@@ -20,10 +20,26 @@
  *
  * @category    design
  * @package     base_default
- * @copyright   Copyright (c) 2010 Magento Inc. (http://www.magentocommerce.com)
+ * @copyright   Copyright (c) 2013 Magento Inc. (http://www.magentocommerce.com)
  * @license     http://www.magentocommerce.com/license/enterprise-edition
  */
 ?>
-<div class="order-review" id="checkout-review-load">
-    <!-- Content loaded dynamically -->
-</div>
+<?php if ($this->getCheckout()->getStepData('shipping', 'complete')): ?>
+<?php $completeClass = $this->getCheckout()->getStepData('shipping', 'complete') ? 'complete' : ''; ?>
+<dt class="<?php echo $completeClass ?>">
+    <?php echo $this->__('Shipping Address') ?>
+    <a
+        href="#payment"
+        onclick="checkout.changeSection('opc-shipping');return false;" class="f-right"><span class="glyphicon glyphicon-edit"></span><?php //echo $this->__('Change') ?></a>
+</dt>
+<dd class="<?php echo $completeClass ?>">
+    <?php if ($this->getCheckout()->getStepData('shipping', 'complete')): ?>
+    <address><?php echo $this->getShipping()->format('html') ?></address>
+    <?php endif; ?>
+</dd>
+<?php else: ?>
+<dt>
+    <?php echo $this->__('Shipping Address') ?>
+</dt>
+<?php endif; ?>
+
