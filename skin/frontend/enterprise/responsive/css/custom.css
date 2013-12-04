@@ -145,7 +145,7 @@ a.product-image {
 }
 
 .sidebar .block .block-title {
-  background-color: #555555;
+  background-color: #888888;
   color: #FFFFFF;
   padding: 10px;
 }
@@ -991,4 +991,11 @@ footer {
     float: none;
     clear: both;
   }
+}
+.header-panel.navbar.navbar-default.row {
+    border-left: medium none;
+    border-right: medium none;
+}
+.header-panel .glyphicon {
+    margin: 2px;
 }
