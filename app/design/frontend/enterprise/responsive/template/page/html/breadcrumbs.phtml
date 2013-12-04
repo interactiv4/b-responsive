@@ -1,16 +1,13 @@
 <?php if($crumbs && is_array($crumbs)): ?>
-<ol class="breadcrumbs">
+<ol class="breadcrumb">
         <?php foreach($crumbs as $_crumbName=>$_crumbInfo): ?>
-            <li class="<?php echo $_crumbName ?>">
+            <li class="<?php if($_crumbInfo['last']) echo 'active '; echo $_crumbName ?>">
             <?php if($_crumbInfo['link']): ?>
                 <a href="<?php echo $_crumbInfo['link'] ?>" title="<?php echo $this->escapeHtml($_crumbInfo['title']) ?>"><?php echo $this->escapeHtml($_crumbInfo['label']) ?></a>
             <?php elseif($_crumbInfo['last']): ?>
-                <strong><?php echo $this->escapeHtml($_crumbInfo['label']) ?></strong>
+                <?php echo $this->escapeHtml($_crumbInfo['label']) ?>
             <?php else: ?>
                 <?php echo $this->escapeHtml($_crumbInfo['label']) ?>
-            <?php endif; ?>
-            <?php if(!$_crumbInfo['last']): ?>
-                <span>/ </span>
             <?php endif; ?>
             </li>
         <?php endforeach; ?>

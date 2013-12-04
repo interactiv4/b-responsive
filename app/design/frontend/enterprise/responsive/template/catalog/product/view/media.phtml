@@ -44,7 +44,7 @@
         <?php if ($_imgWidth > 380 || $_imgHeight > 380):?>
             <a class="product-image image-zoom" id="main-image" title="<?php echo $this->escapeHtml($_product->getImageLabel()); ?>" href="<?php echo $this->helper('catalog/image')->init($_product, 'image'); ?>">
                 <?php
-                    $_img = '<img src="'.$this->helper('catalog/image')->init($_product, 'image')->resize(450).'"  alt="'.$this->escapeHtml($_product->getImageLabel()).'" title="'.$this->escapeHtml($_product->getImageLabel()).'" />';
+                    $_img = '<img class="img-thumbnail" src="'.$this->helper('catalog/image')->init($_product, 'image')->resize(450).'"  alt="'.$this->escapeHtml($_product->getImageLabel()).'" title="'.$this->escapeHtml($_product->getImageLabel()).'" />';
                     echo $_helper->productAttribute($_product, $_img, 'image');
                 ?>
             </a>
@@ -68,7 +68,7 @@
         <?php else: ?>
             <p class="product-image">
                 <?php
-                    $_img = '<img src="'.$this->helper('catalog/image')->init($_product, 'image')->resize(450).'"  alt="'.$this->escapeHtml($_product->getImageLabel()).'" title="'.$this->escapeHtml($_product->getImageLabel()).'" />';
+                    $_img = '<img class="img-thumbnail" src="'.$this->helper('catalog/image')->init($_product, 'image')->resize(450).'"  alt="'.$this->escapeHtml($_product->getImageLabel()).'" title="'.$this->escapeHtml($_product->getImageLabel()).'" />';
                     echo $_helper->productAttribute($_product, $_img, 'image');
                 ?>
             </p>
@@ -77,7 +77,7 @@
     <?php else: ?>
         <p class="product-image">
             <?php
-                $_img = '<img src="'.$this->helper('catalog/image')->init($_product, 'image')->resize(450).'" alt="'.$this->escapeHtml($_product->getImageLabel()).'" title="'.$this->escapeHtml($_product->getImageLabel()).'" />';
+                $_img = '<img class="img-thumbnail" src="'.$this->helper('catalog/image')->init($_product, 'image')->resize(450).'" alt="'.$this->escapeHtml($_product->getImageLabel()).'" title="'.$this->escapeHtml($_product->getImageLabel()).'" />';
                 echo $_helper->productAttribute($_product, $_img, 'image');
             ?>
         </p>
@@ -90,7 +90,7 @@
     <?php if ($_product->getImage() != 'no_selection' && $_product->getImage()): ?>
         <p class="product-image product-image-zoom">
             <?php
-                $_img = '<img id="image" src="'.$this->helper('catalog/image')->init($_product, 'image').'" alt="'.$this->escapeHtml($this->getImageLabel()).'" title="'.$this->escapeHtml($this->getImageLabel()).'" />';
+                $_img = '<img class="img-thumbnail" id="image" src="'.$this->helper('catalog/image')->init($_product, 'image').'" alt="'.$this->escapeHtml($this->getImageLabel()).'" title="'.$this->escapeHtml($this->getImageLabel()).'" />';
                 echo $_helper->productAttribute($_product, $_img, 'image');
             ?>
         </p>
@@ -112,7 +112,7 @@
     <?php else: ?>
         <p class="product-image">
             <?php
-                $_img = '<img src="'.$this->helper('catalog/image')->init($_product, 'image')->resize(275).'" alt="'.$this->escapeHtml($_product->getImageLabel()).'" title="'.$this->escapeHtml($_product->getImageLabel()).'" />';
+                $_img = '<img class="img-thumbnail" src="'.$this->helper('catalog/image')->init($_product, 'image')->resize(275).'" alt="'.$this->escapeHtml($_product->getImageLabel()).'" title="'.$this->escapeHtml($_product->getImageLabel()).'" />';
                 echo $_helper->productAttribute($_product, $_img, 'image');
             ?>
         </p>
@@ -123,8 +123,7 @@
 
 <?php if (count($this->getGalleryImages()) > 0): ?>
 <div class="more-views">
-    <h2><?php echo $this->__('More Views') ?></h2>
-    <ul>
+    <ul class="nav nav-pills">
     <?php foreach ($this->getGalleryImages() as $_image): ?>
         <li>
             <a href="#" onclick="popWin('<?php echo $this->getGalleryUrl($_image) ?>', 'gallery', 'width=300,height=300,left=0,top=0,location=no,status=yes,scrollbars=yes,resizable=yes'); return false;" title="<?php echo $this->escapeHtml($_image->getLabel()) ?>"><img src="<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'thumbnail', $_image->getFile())->resize(48); ?>" width="48" height="48" alt="<?php echo $this->escapeHtml($_image->getLabel()) ?>" /></a>

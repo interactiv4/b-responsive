@@ -37,4 +37,8 @@
             <action method="setTemplate"><template>checkout/onepage/billing.phtml</template></action>
         </reference>
     </checkout_onepage_index> -->
+
+    <catalog_product_view>
+        <remove name="reward.tooltip.tag" />
+    </catalog_product_view>
 </layout>

@@ -36,16 +36,16 @@
             <li class="item col-xs-4 col-md-3">
                 <a class="product-image" href="<?php echo $this->getProductUrl($_item) ?>"><img src="<?php echo $this->helper('catalog/image')->init($_item, 'thumbnail')->resize(150); ?>" width="150" alt="<?php echo $this->htmlEscape($_item->getName()) ?>" title="<?php echo $this->htmlEscape($_item->getName()) ?>" class="img-thumbnail" /></a>
                 <div class="product-shop">
-                    <h3 class="product-name"><a href="<?php echo $this->getProductUrl($_item) ?>"><?php echo $this->htmlEscape($_item->getName()) ?></a></h3>
+                    <h3 class="product-name font12"><a href="<?php echo $this->getProductUrl($_item) ?>"><?php echo $this->htmlEscape($_item->getName()) ?></a></h3>
                     <?php echo $this->getPriceHtml($_item, true) ?>
                     <p><button class="btn btn-success btn-block" onclick="setLocation('<?php echo $this->getAddToCartUrl($_item) ?>')" type="button"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button></p>
                     <ul class="add-to-links">
                         <li>
                             <?php if ($this->helper('wishlist')->isAllow()) : ?>
-                            <a href="<?php echo $this->getAddToWishlistUrl($_item) ?>" class="btn btn-link"><span class="glyphicon glyphicon-heart"></span><?php echo $this->__('Add to Wishlist') ?></a>
+                            <a href="<?php echo $this->getAddToWishlistUrl($_item) ?>" class="btn btn-link font12"><span class="glyphicon glyphicon-heart"></span><?php echo $this->__('Add to Wishlist') ?></a>
                             <?php endif; ?>
                             <?php if($_compareUrl=$this->getAddToCompareUrl($_item)): ?>
-                            <span class="separator">|</span> <a href="<?php echo $_compareUrl ?>" class="btn btn-link"><span class="glyphicon glyphicon-transfer"></span><?php echo $this->__('Add to Compare') ?></a>
+                            <span class="separator">|</span> <a href="<?php echo $_compareUrl ?>" class="btn btn-link font12"><span class="glyphicon glyphicon-transfer"></span><?php echo $this->__('Add to Compare') ?></a>
                             <?php endif; ?>
                         </li>
                     </ul>

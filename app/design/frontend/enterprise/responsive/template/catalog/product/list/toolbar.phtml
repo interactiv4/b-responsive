@@ -80,7 +80,7 @@
     </div>
     <div class="row">
         <?php if( $this->isEnabledViewSwitcher() ): ?>
-        <div class="view-mode col-xs-6 col-sm-6">
+        <div class="view-mode col-xs-4 col-sm-4">
             <ul class="pagination">
             <?php $_modes = $this->getModes(); ?>
             <?php if($_modes && count($_modes)>1): ?>
@@ -113,7 +113,7 @@
         </div>
         <?php endif; ?>
 
-        <div class="col-xs-6 col-sm-6 a-right"><?php echo $this->getPagerHtml() ?></div>
+        <div class="col-xs-8 col-sm-8 a-right"><?php echo $this->getPagerHtml() ?></div>
     </div>
 
 </div>
