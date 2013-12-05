@@ -1,4 +1,4 @@
-b-responsive
+b-responsive v 1.0.0 beta
 ================
 
 Magento Responsive Theme built with Twitter Bootstrap v3
@@ -21,12 +21,11 @@ DEMO
 
 ================
 
-Currently compatiable with:
+Currently compatiable (and tested) with:
 Magento Enterprise 1.13
 IE 9.0, 10.0, 11.0
 Safari, Firefox, Chrome, Android and iOS
 
-Note: this theme is currenlty not compatialbe with Magento Community or IE 8.
 Additional browsers, versions and community support coming soon...
 
 ================
