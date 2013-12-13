@@ -999,3 +999,65 @@ footer {
 .header-panel .glyphicon {
     margin: 2px;
 }
+
+/* COMMUNITY VERSION STYLE FIXES */
+body {background-image:none}
+
+.header .form-search,.block .block-title {background-image:none}
+
+.block .block-title strong , .block-cart, .block-wishlist, .block-subscribe, .block-compare, .block-reorder, .block-poll, .block-gr-search, .block-viewed, .block-compared, .block-related, .block-tags, .block-login {
+    font-size: 1em;}
+
+.block .block-content,.block .actions,.block-layered-nav .block-subtitle,.block-layered-nav .block-content
+,.block-layered-nav dt,.product-essential,.account-login .content, .account-login .buttons-set ,.block li.odd,
+.block-cart .subtotal,.product-view .box-up-sell .products-grid td,.product-view .box-up-sell .products-grid td.empty,
+.cart .crosssell {background:none }
+
+block-poll button.button span {
+    background: none;
+    border:none;
+}
+.block-content {border:none !important}
+
+.sidebar .block {
+    background: url("../images/bkg_block.gif") repeat-x scroll 0 0 #F5F5F5;
+    border-bottom: 1px solid #CFCFCF;
+    border-left: medium none;
+    border-right: medium none;
+    margin-bottom:15px;
+}
+
+.sidebar .block .block-content {
+    color: #555555;
+   
+}
+.products-grid .actions {
+    bottom: 0;
+    position: relative;
+}
+.products-grid {
+    background: none;
+    border-bottom: none;
+    position: relative;
+}
+.header .form-search {
+    background: none;
+    float: right;
+    height: auto;
+    position: relative;
+    top: 0;
+    width: auto;
+    right:0;
+}
+.footer {width:auto}
+.footer a {color: #428BCA}
+
+button.button span {border:none}
+.account-login .content,.account-login .buttons-set {border:none;}
+.account-login .new-users h2,.account-login .content h2 {background:none !important; padding:0;margin:10px 0; font-size:20px; }
+.links li {
+    border-right: 1px solid #808080;
+    padding: 0 9px 0 5px;
+}
+.links li.last {border-right:none}
+
