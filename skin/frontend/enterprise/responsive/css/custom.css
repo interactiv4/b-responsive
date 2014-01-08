@@ -42,7 +42,13 @@ a {
 .checkout-link {
   float: right;
 }
-
+.switches ul.links .first {
+    border-right: 2px solid #E7E7E7;
+    padding-right: 5px;
+}
+#cartHeader .glyphicon-shopping-cart {
+    padding-right: 3px;
+}
 .header-panel {
   line-height: 38px;
   padding: 0;
