@@ -1,0 +1,53 @@
+<?php
+/**
+ * Magento Enterprise Edition
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Magento Enterprise Edition License
+ * that is bundled with this package in the file LICENSE_EE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.magentocommerce.com/license/enterprise-edition
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     enterprise_default
+ * @copyright   Copyright (c) 2010 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://www.magentocommerce.com/license/enterprise-edition
+ */
+?>
+<?php
+/**
+ * @see Enterprise_Reward_Block_Tooltip
+ */
+?>
+<div class="reward-message <?php echo $this->getWrapperClass()?> alert alert-info alert-dismissable">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <div class="reward">
+    <?php if ($this->hasRewardMessage()):?>
+        <p><?php echo $this->__($this->getRewardMessage(), Mage::helper('enterprise_reward')->formatReward($this->getRewardPoints(), $this->getRewardAmount(), null, '<strong>%s</strong>'))?></p>
+    <?php endif;?>
+    <?php if ($this->hasPointsBalance() && !$this->hasHideBalance()):?>
+    <p class="balance">
+        <?php echo $this->__('Your current balance is %s.', Mage::helper('enterprise_reward')->formatReward($this->getPointsBalance(), null, null, '<strong>%s</strong>'))?>
+    </p>
+    <?php endif;?>
+    <?php if (!$this->hasHideLink()):?>
+        <p class="a-more"><?php echo $this->renderLearnMoreLink()?></p>
+    <?php endif;?>
+    <?php if ($this->hasQtyLimit() && $this->hasRewardQtyLimitationMessage()):?>
+        <p class="limit"><?php echo $this->__($this->getRewardQtyLimitationMessage(), "<strong>{$this->getQtyLimit()}</strong>")?></p>
+    <?php endif;?>
+    <?php if ($this->hasGuestNote()):?>
+        <p class="limit"><?php echo $this->__($this->getGuestNote())?></p>
+    <?php endif;?>
+    </div>
+</div>

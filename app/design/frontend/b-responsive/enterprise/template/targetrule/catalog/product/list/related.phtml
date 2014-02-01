@@ -1,0 +1,90 @@
+<?php
+/**
+ * Magento Enterprise Edition
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Magento Enterprise Edition License
+ * that is bundled with this package in the file LICENSE_EE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.magentocommerce.com/license/enterprise-edition
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     enterprise_default
+ * @copyright   Copyright (c) 2013 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://www.magentocommerce.com/license/enterprise-edition
+ */
+/* @var $this Enterprise_TargetRule_Block_Catalog_Product_List_Related */
+?>
+<?php if ($this->hasItems()):?>
+<div class="box-collateral panel panel-info">
+    <div class="panel-heading">
+        <h2 class="panel-title"><?php echo $this->__('Related Products') ?></h2>
+    </div>
+    <div class="panel-body">
+        <p class="note"><?php echo $this->__('Check items to add to the cart or') ?>&nbsp;<a href="#" onclick="selectAllRelated(this); return false;"><strong><?php echo $this->__('select all') ?></strong></a></p>
+        <?php $i=0; foreach($this->getItemCollection() as $_item): ?>
+            <?php if ($i++ % $this->getColumnCount() == 0): ?>
+            <ul class="row">
+            <?php endif ?>
+            <li class="col-xs-4 col-md-4 item<?php if (($i - 1) % $this->getColumnCount() == 0):?> first<?php elseif ($i % $this->getColumnCount() == 0): ?> last<?php endif; ?>">
+                <?php
+                    $itemBlock = $this->getChild('catalog.product.related.item')->setItem($_item)->setPosition($i);
+                    echo $itemBlock->toHtml();
+                ?>
+            </li>
+            <?php if ($i % $this->getColumnCount() == 0 || $i == $this->getItemsCount()): ?>
+            </ul>
+            <div class="clearfix"></div>
+            <?php endif ?>
+        <?php endforeach ?>
+    </div>
+    <script type="text/javascript">decorateGeneric($$('.box-related ul.box-content'), ['odd','even','first','last'])</script>
+
+    <script type="text/javascript">
+    //<![CDATA[
+    $$('.related-checkbox').each(function(elem){
+        Event.observe(elem, 'click', addRelatedToProduct)
+    });
+
+    var relatedProductsCheckFlag = false;
+    function selectAllRelated(txt){
+        if (relatedProductsCheckFlag == false) {
+            $$('.related-checkbox').each(function(elem){
+                elem.checked = true;
+            });
+            relatedProductsCheckFlag = true;
+            txt.innerHTML="<strong><?php echo $this->__('unselect all') ?><\/strong>";
+        } else {
+            $$('.related-checkbox').each(function(elem){
+                elem.checked = false;
+            });
+            relatedProductsCheckFlag = false;
+            txt.innerHTML="<strong><?php echo $this->__('select all') ?><\/strong>";
+        }
+        addRelatedToProduct();
+    }
+
+    function addRelatedToProduct(){
+        var checkboxes = $$('.related-checkbox');
+        var values = [];
+        for(var i=0;i<checkboxes.length;i++){
+            if(checkboxes[i].checked) values.push(checkboxes[i].value);
+        }
+        if($('related-products-field')){
+            $('related-products-field').value = values.join(',');
+        }
+    }
+    //]]>
+    </script>
+</div>
+<?php endif;?>

@@ -1,0 +1,67 @@
+<?php
+/**
+ * Magento Enterprise Edition
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Magento Enterprise Edition License
+ * that is bundled with this package in the file LICENSE_EE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.magentocommerce.com/license/enterprise-edition
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     enterprise_default
+ * @copyright   Copyright (c) 2013 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://www.magentocommerce.com/license/enterprise-edition
+ */
+?>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h2 class="panel-title"><?php echo $this->__('Product Tags'); ?></h2>
+    </div>
+    <?php echo $this->getChildHtml('list_before')?>
+    <div class="panel-body">
+        <?php if($this->getCount()): ?>
+        <h3><?php echo $this->__('Other people marked this product with these tags:') ?></h3>
+        <ul id="<?php echo $this->getUniqueHtmlId('tags-list_'); ?>" class="tags-list">
+            <?php echo $this->renderTags('<li><a href="%1$s">%2$s</a> (%3$s)</li>') ?>
+        </ul>
+        <script type="text/javascript">
+            decorateGeneric($("<?php echo $this->getUniqueHtmlId('tags-list_'); ?>").select('li'), ['first', 'last']);
+        </script>
+        <?php endif; ?>
+        <form id="addTagForm" action="<?php echo $this->getFormAction(); ?>" method="get">
+            <div class="form-add-tags form-group">
+                <label for="productTagName"><?php echo $this->__('Add Your Tags:') ?></label>
+                <input type="text" class="form-control input-sm required-entry" name="productTagName" id="productTagName" />
+                <p class="help-block"><?php echo $this->__("Use spaces to separate tags. Use single quotes (') for phrases.") ?></p>
+            </div>
+            <div class="form-group">
+                <button type="button" class="btn btn-default" onclick="submitTagForm()">
+                    <span>
+                        <span><?php echo $this->__('Add Tags') ?></span>
+                    </span>
+                </button>
+            </div>
+        </form>
+        <script type="text/javascript">
+        //<![CDATA[
+            var addTagFormJs = new VarienForm('addTagForm');
+            function submitTagForm(){
+                if(addTagFormJs.validator.validate()) {
+                    addTagFormJs.form.submit();
+                }
+            }
+        //]]>
+        </script>
+    </div>
+</div>

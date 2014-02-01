@@ -1,0 +1,51 @@
+<?php
+/**
+ * Magento Enterprise Edition
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Magento Enterprise Edition License
+ * that is bundled with this package in the file LICENSE_EE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.magentocommerce.com/license/enterprise-edition
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     enterprise_default
+ * @copyright   Copyright (c) 2013 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://www.magentocommerce.com/license/enterprise-edition
+ */
+/** @var $this Enterprise_TargetRule_Block_Catalog_Product_Item */
+$_item = $this->getItem();
+if ($_item):
+?>
+    
+    <div class="item-info">
+        <a href="<?php echo $this->getProductUrl($_item) ?>" class="product-image col-xs-12 col-sm-4 col-md-4"><img src="<?php echo $this->helper('catalog/image')->init($_item, 'small_image')->resize(100) ?>" width="100" height="100" alt="<?php echo $this->escapeHtml($_item->getName()) ?>" title="<?php echo $this->escapeHtml($_item->getName()) ?>" class="img-thumbnail" /></a>
+        <div class="product-details col-xs-12 col-sm-8 col-md-8 font12">
+            <h3 class="product-name font12" style="margin-top:0;"><a href="<?php echo $this->getProductUrl($_item) ?>" class="font12"><?php echo $this->escapeHtml($_item->getName()) ?></a></h3>
+            <?php echo $this->getPriceHtml($_item, true, '-related') ?>
+            <?php if ($this->helper('wishlist')->isAllow()) : ?>
+                <p><a href="<?php echo $this->getAddToWishlistUrl($_item) ?>" class="btn btn-link btn-xs"><span class="glyphicon glyphicon-heart mr-3"></span><?php echo $this->__('Add to Wishlist') ?></a></p>
+            <?php endif; ?>
+
+            <div class="clearfix"></div>
+            <?php if(!$_item->isComposite() && $_item->isSaleable()): ?>
+                <?php if (!$_item->getRequiredOptions()): ?>
+                    <div class="checkbox font12">
+                        <label for="related-checkbox<?php echo $_item->getId() ?>"><?php echo $this->__('Select item') ?></label>
+                        <input type="checkbox" class="checkbox related-checkbox" id="related-checkbox<?php echo $_item->getId() ?>" name="related_products[]" value="<?php echo $_item->getId() ?>" />
+                    </div>
+                <?php endif; ?>
+            <?php endif; ?>
+        </div>
+    </div>
+<?php endif;?>
