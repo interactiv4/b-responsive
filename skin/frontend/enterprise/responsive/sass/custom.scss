@@ -30,6 +30,13 @@ a {
     line-height: 38px;
     font-weight: normal;
   }
+  .glyphicon {
+    margin: 2px;
+  }
+  &.navbar.navbar-default.row {
+    border-left: medium none;
+    border-right: medium none;
+  }
 }
 .switches {background:none; line-height: 38px;}
 .product-view {
@@ -98,7 +105,7 @@ a.product-image {
 }
 
 .sidebar .block .block-title {
-    background-color: #555555;
+    background-color: #888888;
     color: #FFFFFF;
     padding: 10px;
 }
