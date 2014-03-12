@@ -71,6 +71,23 @@ a {
   line-height: 38px;
 }
 
+.navbar-toggle {
+  float: left;
+  margin: 10px;
+  padding: 4px 5px;
+}
+
+.form-search-xs {
+  display: block;
+  margin: 8px 10px 0 0;
+  float: right;
+  width: 50%;
+}
+.form-search-xs .form-control {
+  background: none;
+  color: #ffffff;
+}
+
 .product-view {
   width: auto;
   background: none;
@@ -117,6 +134,15 @@ a {
 .account-login .fieldset h2 {
   margin: 0;
 }
+.account-login p.required {
+  padding-left: 0;
+  text-align: left;
+}
+
+.split-button.light strong {
+  font-size: 14px;
+  text-decoration: none !important;
+}
 
 .font12 {
   font-size: 12px !important;
@@ -152,7 +178,7 @@ a.product-image {
 }
 
 .sidebar .block .block-title {
-  background-color: #888888;
+  background-color: #555555;
   color: #FFFFFF;
   padding: 10px;
 }
@@ -768,6 +794,9 @@ footer {
   width: 100%;
   float: none;
 }
+.options-container-small .product-options-bottom p.required {
+  padding-left: 0;
+}
 
 .box-collateral .product-details {
   padding-right: 0;
@@ -799,6 +828,40 @@ footer {
   padding: 20px 0 0;
 }
 
+@media (max-width: 767px) {
+  .header .logo {
+    float: none;
+    display: block;
+    text-align: center;
+  }
+
+  .breadcrumb {
+    font-size: 80%;
+    padding: 0;
+    background: none;
+  }
+  .breadcrumb > li {
+    display: inline;
+  }
+
+  h1, .h1 {
+    font-size: 28px;
+  }
+
+  .header-panel {
+    font-size: 80%;
+    height: 30px;
+    min-height: 30px;
+    line-height: 30px;
+    margin-bottom: 0;
+  }
+
+  .switches,
+  .top-cart .block-title,
+  .top-cart .block-title strong {
+    line-height: 30px;
+  }
+}
 @media (min-width: 768px) {
   .marketing {
     padding-left: 0;

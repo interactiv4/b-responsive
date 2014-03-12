@@ -21,6 +21,26 @@ DEMO
 
 ================
 
+Modman support
+
+To clone via modman issue the following command from your local Magento installation
+
+```bash
+modman init
+modman clone https://github.com/redlightblinking/b-responsive.git
+```
+
+To commit (permanently apply the changes) to your local repo use:
+
+```bash
+modman deploy b-responsive
+```
+
+For more information about modman see [Colin Mollenhour's Github](https://github.com/colinmollenhour/modman).
+
+================
+
+
 Currently compatiable (and tested) with:
 Magento Enterprise 1.13
 IE 9.0, 10.0, 11.0
