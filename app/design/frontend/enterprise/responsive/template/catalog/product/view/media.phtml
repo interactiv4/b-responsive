@@ -36,7 +36,7 @@
     $_nativeZoom = false;
 ?>
 
-
+<div class="hidden-xs">
 <?php if (!$_nativeZoom): ?>
 <?php /* --------- jqZoom --------- */ ?>
     <?php if ($_product->getImage() != 'no_selection' && $_product->getImage()): ?>
@@ -130,5 +130,30 @@
         </li>
     <?php endforeach; ?>
     </ul>
+</div>
+<?php endif; ?>
+</div>
+
+
+<?php /* --------- Mobile image slider --------- */ ?>
+<?php if (count($this->getGalleryImages()) > 0): ?>
+<div class="visible-xs">
+    <div id="carousel-product-images" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <?php $i=0; foreach ($this->getGalleryImages() as $_image): ?>
+        <li data-target="#carousel-product-images" data-slide-to="<?php echo $i; ?>" <?php if($i==0):?>class="active"<?php endif; ?>></li>
+        <?php $i++; endforeach; ?>
+      </ol>
+
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner">
+        <?php $x=0; foreach ($this->getGalleryImages() as $_image): ?>
+        <div class="item <?php if($x==0): ?>active<?php endif; ?>">
+          <img src="<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'thumbnail', $_image->getFile()); ?>" width="100%" alt="<?php echo $this->escapeHtml($_image->getLabel()) ?>" class="img-thumbnail" />
+        </div>
+        <?php $x++; endforeach; ?>
+      </div>
+    </div>
 </div>
 <?php endif; ?>

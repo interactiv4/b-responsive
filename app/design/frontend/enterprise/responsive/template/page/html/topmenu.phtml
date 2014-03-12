@@ -40,13 +40,16 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
-		<span class="icon-bar"></span>
-              </button>  
+		            <span class="icon-bar"></span>
+              </button>
+              <div class="visible-xs">
+                <div class="form-search-xs"><?php echo $this->getChildHtml('topMenuSearch') ?></div>
+              </div>
             </div>
             <div class="navbar-collapse collapse">
-		<ul class="nav navbar-nav">
-		    <?php echo $_menu ?>
-		</ul>
+          		<ul class="nav navbar-nav">
+          		    <?php echo $_menu ?>
+          		</ul>
             </div>
           </div>
         </div>

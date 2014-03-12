@@ -1,11 +1,11 @@
 <div class="header-panel navbar navbar-default row">
-    <div class="welcome-msg hidden-xs col-sm-4 col-md-4 a-left"><?php echo $this->getChildHtml('welcome') ?></div>
+    <div class="welcome-msg hidden-sm col-md-4 a-left"><?php echo $this->getChildHtml('welcome') ?></div>
 
-    <div class="hidden-xs col-sm-4 col-md-4">
+    <div class="hidden-xs col-sm-6 col-md-4">
     	<?php echo $this->getChildHtml('accountLinks') ?>
 	</div>
 
-    <div class="switches col-xs-12 col-sm-4 col-md-4 a-right"><?php //echo $this->getChildHtml('switches') ?>
+    <div class="switches col-xs-12 col-sm-6 col-md-4 a-right"><?php //echo $this->getChildHtml('switches') ?>
 
 		<div class="checkout-link">
 			<?php echo $this->getChildHtml('topCart') ?>
@@ -25,7 +25,7 @@
 	<?php echo $this->getChildHtml('headerCallout') ?>
     </div>
 
-    <?php echo $this->getChildHtml('topSearch') ?>
+    <div class="hidden-xs"><?php echo $this->getChildHtml('topSearch') ?></div>
 
 </div>
 <?php echo $this->getChildHtml('topMenu') ?>

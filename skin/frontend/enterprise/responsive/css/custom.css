@@ -30,6 +30,23 @@ a {
   width: auto;
 }
 
+.navbar-toggle {
+  float: left;
+  margin: 10px;
+  padding: 4px 5px;
+}
+
+.form-search-xs {
+    display: block;
+    margin: 8px 10px 0 0;
+    float: right;
+    width: 50%;
+}
+.form-search-xs .form-control {
+  background: none;
+  color: #ffffff;
+}
+
 .category-view {
   margin: 0;
 }
@@ -232,6 +249,10 @@ a.product-image {
 .please-wait {
   border-color: #444;
   color: #444;
+}
+
+.options-container-small .product-options-bottom p.required {
+  padding-left: 0;
 }
 
 /* RESET MAGENTO BUTTON STYLES TO THE DEFAULT BOOTSTRAP STYLE */
@@ -870,6 +891,36 @@ footer {
     width: 100%;
     clear: both;
     margin-top: 10px;
+  }
+}
+@media (max-width: 767px) {
+  .header .logo {
+    float: none;
+    display: block;
+    text-align: center;
+  }
+  .breadcrumb {
+    font-size: 80%;
+    padding: 0;
+    background: none;
+  }
+  .breadcrumb > li {
+    display: inline;
+  }
+  h1, .h1 {
+    font-size: 28px;
+  }
+  .header-panel {
+    font-size: 80%;
+    height: 30px;
+    min-height: 30px;
+    line-height: 30px;
+    margin-bottom: 0;
+  }
+  .switches,
+  .top-cart .block-title,
+  .top-cart .block-title strong {
+    line-height: 30px;
   }
 }
 @media (max-width: 600px) {

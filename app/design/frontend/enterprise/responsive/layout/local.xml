@@ -13,7 +13,9 @@
 				<action method="addCss"><stylesheet>css/custom.css</stylesheet></action>
 			
 		    </reference>
-		   
+			<reference name="catalog.topnav">
+	            <block type="core/template" name="top.menu.search" as="topMenuSearch" template="catalogsearch/form.mini.phtml"/>
+	        </reference>
 		</reference>
 	</default>
 
