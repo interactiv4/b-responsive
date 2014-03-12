@@ -41,7 +41,7 @@
             <?php endif; ?></h1>
     </div>
     <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
-    <form action="<?php echo $this->getPostActionUrl() ?>" method="post" id="login-form">
+    <form action="<?php echo $this->getPostActionUrl() ?>" method="post" id="login-form" role="form">
         <div class="fieldset">
             <div class="row">
                 <div class="col-xs-12 col-sm-6 col-md-6">
@@ -49,6 +49,7 @@
                         <div class="panel-heading">
                             <h2 class="panel-title"><?php echo $this->__('Registered Customers') ?></h2>
                         </div>
+
                         <div class="panel-body">
                             <p><?php echo $this->__('If you have an account with us, log in using your email address.') ?></p>
                             <ul>
@@ -81,7 +82,7 @@
                         <div class="panel-body">
                             <p><?php echo $this->__('By creating an account with our store, you will be able to move through the checkout process faster, store multiple shipping addresses, view and track your orders in your account and more.') ?></p>
                             <div class="form-group a-right">
-                                <button type="button" class="btn btn-primary" onclick="window.location='<?php echo Mage::helper('persistent')->getCreateAccountUrl($this->getCreateAccountUrl()) ?>';"><span><span><?php echo $this->__('Register') ?></span></span></button>
+                                <button type="button" class="btn btn-primary" onclick="window.location='<?php echo $this->getCreateAccountUrl() ?>';"><span><span><?php echo $this->__('Register') ?></span></span></button>
                             </div>
                         </div>
                     </div>
