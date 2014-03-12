@@ -30,23 +30,6 @@ a {
   width: auto;
 }
 
-.navbar-toggle {
-  float: left;
-  margin: 10px;
-  padding: 4px 5px;
-}
-
-.form-search-xs {
-    display: block;
-    margin: 8px 10px 0 0;
-    float: right;
-    width: 50%;
-}
-.form-search-xs .form-control {
-  background: none;
-  color: #ffffff;
-}
-
 .category-view {
   margin: 0;
 }
@@ -59,13 +42,7 @@ a {
 .checkout-link {
   float: right;
 }
-.switches ul.links .first {
-    border-right: 2px solid #E7E7E7;
-    padding-right: 5px;
-}
-#cartHeader .glyphicon-shopping-cart {
-    padding-right: 3px;
-}
+
 .header-panel {
   line-height: 38px;
   padding: 0;
@@ -85,6 +62,23 @@ a {
 .switches {
   background: none;
   line-height: 38px;
+}
+
+.navbar-toggle {
+  float: left;
+  margin: 10px;
+  padding: 4px 5px;
+}
+
+.form-search-xs {
+  display: block;
+  margin: 8px 10px 0 0;
+  float: right;
+  width: 50%;
+}
+.form-search-xs .form-control {
+  background: none;
+  color: #ffffff;
 }
 
 .product-view {
@@ -249,10 +243,6 @@ a.product-image {
 .please-wait {
   border-color: #444;
   color: #444;
-}
-
-.options-container-small .product-options-bottom p.required {
-  padding-left: 0;
 }
 
 /* RESET MAGENTO BUTTON STYLES TO THE DEFAULT BOOTSTRAP STYLE */
@@ -797,6 +787,9 @@ footer {
   width: 100%;
   float: none;
 }
+.options-container-small .product-options-bottom p.required {
+  padding-left: 0;
+}
 
 .box-collateral .product-details {
   padding-right: 0;
@@ -828,6 +821,40 @@ footer {
   padding: 20px 0 0;
 }
 
+@media (max-width: 767px) {
+  .header .logo {
+    float: none;
+    display: block;
+    text-align: center;
+  }
+
+  .breadcrumb {
+    font-size: 80%;
+    padding: 0;
+    background: none;
+  }
+  .breadcrumb > li {
+    display: inline;
+  }
+
+  h1, .h1 {
+    font-size: 28px;
+  }
+
+  .header-panel {
+    font-size: 80%;
+    height: 30px;
+    min-height: 30px;
+    line-height: 30px;
+    margin-bottom: 0;
+  }
+
+  .switches,
+  .top-cart .block-title,
+  .top-cart .block-title strong {
+    line-height: 30px;
+  }
+}
 @media (min-width: 768px) {
   .marketing {
     padding-left: 0;
@@ -891,36 +918,6 @@ footer {
     width: 100%;
     clear: both;
     margin-top: 10px;
-  }
-}
-@media (max-width: 767px) {
-  .header .logo {
-    float: none;
-    display: block;
-    text-align: center;
-  }
-  .breadcrumb {
-    font-size: 80%;
-    padding: 0;
-    background: none;
-  }
-  .breadcrumb > li {
-    display: inline;
-  }
-  h1, .h1 {
-    font-size: 28px;
-  }
-  .header-panel {
-    font-size: 80%;
-    height: 30px;
-    min-height: 30px;
-    line-height: 30px;
-    margin-bottom: 0;
-  }
-  .switches,
-  .top-cart .block-title,
-  .top-cart .block-title strong {
-    line-height: 30px;
   }
 }
 @media (max-width: 600px) {
