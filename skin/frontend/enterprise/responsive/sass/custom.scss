@@ -123,16 +123,30 @@ a.product-image {
 .product-essential .price-box {font-size:18px; margin-bottom:15px}
 
 
-.sidebar .block-layered-nav .block-title {
+.sidebar {
+  .block-layered-nav .block-title {
     padding: 10px;
+  }
+  .block {
+    .block-title {
+      background-color: #555555;
+      color: #FFFFFF;
+      padding: 10px;
+      span {color:#ffffff}
+    }
+
+    .block-content {
+      .list-group {
+        .text {
+          display: inline-block;
+          line-height: 1;
+          max-width: 79%;
+        }
+      }
+    }
+  }
 }
 
-.sidebar .block .block-title {
-    background-color: #888888;
-    color: #FFFFFF;
-    padding: 10px;
-}
-.sidebar .block .block-title span {color:#ffffff}
 #poll-answers label {color: #999999}
 
 .navbar-inverse .navbar-nav > li > a {

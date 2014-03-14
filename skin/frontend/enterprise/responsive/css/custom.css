@@ -176,15 +176,18 @@ a.product-image {
 .sidebar .block-layered-nav .block-title {
   padding: 10px;
 }
-
 .sidebar .block .block-title {
   background-color: #555555;
   color: #FFFFFF;
   padding: 10px;
 }
-
 .sidebar .block .block-title span {
   color: #ffffff;
+}
+.sidebar .block .block-content .list-group .text {
+  display: inline-block;
+  line-height: 1;
+  max-width: 79%;
 }
 
 #poll-answers label {
@@ -274,7 +277,7 @@ button.button {
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.15) inset, 0 1px 1px rgba(0, 0, 0, 0.075);
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
   color: #333333;
-  background-image: linear-gradient(to bottom, white 0%, #e6e6e6 100%);
+  background-image: linear-gradient(to bottom, #ffffff 0%, #e6e6e6 100%);
   background-repeat: repeat-x;
   border-color: #CCCCCC;
   text-shadow: 0 1px 0 #FFFFFF;
@@ -660,7 +663,7 @@ footer {
   background-image: -webkit-gradient(linear, left 0%, left 100%, from(whitesmoke), to(#e8e8e8));
   background-image: -webkit-linear-gradient(top, whitesmoke, 0%, #e8e8e8, 100%);
   background-image: -moz-linear-gradient(top, whitesmoke 0%, #e8e8e8 100%);
-  background-image: linear-gradient(to bottom, whitesmoke 0%, #e8e8e8 100%);
+  background-image: linear-gradient(to bottom, #f5f5f5 0%, #e8e8e8 100%);
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff5f5f5', endColorstr='#ffe8e8e8', GradientType=0);
   border-color: #ddd;
@@ -670,7 +673,7 @@ footer {
   background-image: -webkit-gradient(linear, left 0%, left 100%, from(whitesmoke), to(#e8e8e8));
   background-image: -webkit-linear-gradient(top, whitesmoke, 0%, #e8e8e8, 100%);
   background-image: -moz-linear-gradient(top, whitesmoke 0%, #e8e8e8 100%);
-  background-image: linear-gradient(to bottom, whitesmoke 0%, #e8e8e8 100%);
+  background-image: linear-gradient(to bottom, #f5f5f5 0%, #e8e8e8 100%);
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff5f5f5', endColorstr='#ffe8e8e8', GradientType=0);
   border-color: #ddd;
