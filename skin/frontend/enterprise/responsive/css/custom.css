@@ -169,15 +169,18 @@ a.product-image {
 .sidebar .block-layered-nav .block-title {
   padding: 10px;
 }
-
 .sidebar .block .block-title {
   background-color: #555555;
   color: #FFFFFF;
   padding: 10px;
 }
-
 .sidebar .block .block-title span {
   color: #ffffff;
+}
+.sidebar .block .block-content .list-group .text {
+  display: inline-block;
+  line-height: 1;
+  max-width: 79%;
 }
 
 #poll-answers label {
