@@ -1,13 +1,13 @@
 <?php
 /**
- * Magento Enterprise Edition
+ * Magento
  *
  * NOTICE OF LICENSE
  *
- * This source file is subject to the Magento Enterprise Edition License
- * that is bundled with this package in the file LICENSE_EE.txt.
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
  * It is also available through the world-wide-web at this URL:
- * http://www.magentocommerce.com/license/enterprise-edition
+ * http://opensource.org/licenses/afl-3.0.php
  * If you did not receive a copy of the license and are unable to
  * obtain it through the world-wide-web, please send an email
  * to license@magentocommerce.com so we can send you a copy immediately.
@@ -20,18 +20,28 @@
  *
  * @category    design
  * @package     base_default
- * @copyright   Copyright (c) 2010 Magento Inc. (http://www.magentocommerce.com)
- * @license     http://www.magentocommerce.com/license/enterprise-edition
+ * @copyright   Copyright (c) 2013 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 ?>
 <?php
 /**
  * One page checkout payment methods
  *
- * @see Mage_Checkout_Block_Onepage_Payment_Methods
+ * @var $this Mage_Checkout_Block_Onepage_Payment_Methods
  */
 ?>
+
+<?php
+    $methods = $this->getMethods();
+    $oneMethod = count($methods) <= 1;
+?>
 <dl class="sp-methods" id="checkout-payment-method-load">
+<?php if (empty($methods)): ?>
+    <dt class="form-group">
+        <?php echo $this->__('No Payment Methods') ?>
+    </dt>
+<?php else: ?>
 <?php foreach ($this->getMethods() as $_method): $_code = $_method->getCode() ?>
     <dt class="form-group">
         <div class="well well-sm checkbox">
@@ -50,14 +60,18 @@
     </dd>
     <?php endif; ?>
 <?php endforeach; ?>
+<?php endif; ?>
+
+<?php echo $this->getChildChildHtml('additional'); ?>
 </dl>
 
-<!-- Add gift card -->
-<?php //echo $this->getChildChildHtml('additional'); ?>
 
 <script type="text/javascript">
 //<![CDATA[
-<?php echo $this->getChildChildHtml('scripts'); ?>
-payment.init();
+    <?php echo $this->getChildChildHtml('scripts'); ?>
+    payment.init();
+    <?php if (is_string($oneMethod)): ?>
+    payment.switchMethod('<?php echo $oneMethod ?>');
+        <?php endif; ?>
 //]]>
 </script>

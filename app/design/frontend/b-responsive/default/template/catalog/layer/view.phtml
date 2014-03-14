@@ -33,9 +33,7 @@
 ?>
 <?php if($this->canShowBlock()): ?>
 <div class="block block-layered-nav">
-    <div class="block-title">
-        <strong><span><?php echo $this->__('Shop By') ?></span></strong>
-    </div>
+    <h5><?php echo $this->__('Shop By') ?></h5>
     <div class="block-content">
         <?php echo $this->getStateHtml() ?>
         <?php if ($this->getLayer()->getState()->getFilters()): ?>

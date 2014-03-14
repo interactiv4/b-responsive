@@ -1,13 +1,13 @@
 <?php
 /**
- * Magento Enterprise Edition
+ * Magento
  *
  * NOTICE OF LICENSE
  *
- * This source file is subject to the Magento Enterprise Edition License
- * that is bundled with this package in the file LICENSE_EE.txt.
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
  * It is also available through the world-wide-web at this URL:
- * http://www.magentocommerce.com/license/enterprise-edition
+ * http://opensource.org/licenses/afl-3.0.php
  * If you did not receive a copy of the license and are unable to
  * obtain it through the world-wide-web, please send an email
  * to license@magentocommerce.com so we can send you a copy immediately.
@@ -21,7 +21,7 @@
  * @category    design
  * @package     base_default
  * @copyright   Copyright (c) 2013 Magento Inc. (http://www.magentocommerce.com)
- * @license     http://www.magentocommerce.com/license/enterprise-edition
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 ?>
 <?php
@@ -34,19 +34,22 @@
 <?php $_menu = $this->getHtml('dropdown', 'dropdown-menu') ?>
 <?php if($_menu): ?>
         <div class="navbar navbar-inverse navbar-static-top">
-          <div class="container-fluid">
+          <div class="container">
             <div class="navbar-header">
               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
-		<span class="icon-bar"></span>
-              </button>  
+                <span class="icon-bar"></span>
+              </button>
+              <div class="visible-xs">
+                <div class="form-search-xs"><?php echo $this->getChildHtml('topMenuSearch') ?></div>
+              </div>
             </div>
             <div class="navbar-collapse collapse">
-		<ul class="nav navbar-nav">
-		    <?php echo $_menu ?>
-		</ul>
+              <ul class="nav navbar-nav">
+                  <?php echo $_menu ?>
+              </ul>
             </div>
           </div>
         </div>

@@ -1,13 +1,13 @@
 <?php
 /**
- * Magento Enterprise Edition
+ * Magento
  *
  * NOTICE OF LICENSE
  *
- * This source file is subject to the Magento Enterprise Edition License
- * that is bundled with this package in the file LICENSE_EE.txt.
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
  * It is also available through the world-wide-web at this URL:
- * http://www.magentocommerce.com/license/enterprise-edition
+ * http://opensource.org/licenses/afl-3.0.php
  * If you did not receive a copy of the license and are unable to
  * obtain it through the world-wide-web, please send an email
  * to license@magentocommerce.com so we can send you a copy immediately.
@@ -19,10 +19,11 @@
  * needs please refer to http://www.magentocommerce.com for more information.
  *
  * @category    design
- * @package     enterprise_default
- * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
- * @license     http://www.magentocommerce.com/license/enterprise-edition
+ * @package     base_default
+ * @copyright   Copyright (c) 2013 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
+/** @var Mage_Checkout_Block_Onepage_Billing $this */
 ?>
 <form id="co-billing-form" action="">
 <fieldset>
@@ -104,45 +105,29 @@
                     </div>
                 </li>
 
-                <?php $addressAttributes = $this->getChild('customer_form_billing_address_user_defined_attributes');?>
-                <?php if ($addressAttributes): ?>
-                    <?php $addressAttributes->setEntity($this->getAddress())->setEntityType('customer_address');?>
-                    <?php $addressAttributes->setFieldIdFormat('billing:%1$s')->setFieldNameFormat('billing[%1$s]');?>
-                    <?php echo $addressAttributes->setExcludeFileAttributes(true)->setShowContainer(false)->toHtml()?>
-                <?php endif;?>
-
                 <?php if(!$this->isCustomerLoggedIn()): ?>
                 <?php $_dob = $this->getLayout()->createBlock('customer/widget_dob') ?>
-                <?php $_taxvat = $this->getLayout()->createBlock('customer/widget_taxvat') ?>
                 <?php $_gender = $this->getLayout()->createBlock('customer/widget_gender') ?>
-                <?php if ($_dob->isEnabled() || $_taxvat->isEnabled() || $_gender->isEnabled() ): ?>
+
+                <?php if ($_dob->isEnabled() || $_gender->isEnabled()): ?>
                 <li class="fields">
                     <?php if ($_dob->isEnabled()): ?>
                     <div class="form-group">
-                        <?php echo $_dob->setDate($this->getQuote()->getCustomerDob())
-                            ->setFieldIdFormat('billing:%s')->setFieldNameFormat('billing[%s]')->toHtml() ?>
+                        <?php echo $_dob->setDate($this->getQuote()->getCustomerDob())->setFieldIdFormat('billing:%s')->setFieldNameFormat('billing[%s]')->toHtml() ?>
                     </div>
                     <?php endif; ?>
-                    <?php if ($_taxvat->isEnabled()): ?>
-                                <div class="form-group">
-                                    <?php echo $_taxvat->setTaxvat($this->getQuote()->getCustomerTaxvat())
-                                        ->setFieldIdFormat('billing:%s')->setFieldNameFormat('billing[%s]')->toHtml() ?>
-                                </div>
-                    <?php endif ?>
                     <?php if ($_gender->isEnabled()): ?>
-                                <div class="form-group">
-                                    <?php echo $_gender->setGender($this->getQuote()->getCustomerGender())
-                                        ->setFieldIdFormat('billing:%s')->setFieldNameFormat('billing[%s]')->toHtml() ?>
-                                </div>
+                    <div class="form-group">
+                        <?php echo $_gender->setGender($this->getQuote()->getCustomerGender())->setFieldIdFormat('billing:%s')->setFieldNameFormat('billing[%s]')->toHtml() ?>
+                    </div>
                     <?php endif ?>
                 </li>
                 <?php endif; ?>
-                <?php $customerAttributes = $this->getChild('customer_form_customer_user_defined_attributes');?>
-                <?php if ($customerAttributes): ?>
-                    <?php $customerAttributes->setEntityModelClass('customer/customer')->setFieldIdFormat('billing:%1$s');?>
-                    <?php $customerAttributes->setFieldNameFormat('billing[%1$s]')->setShowContainer(false);?>
-                    <?php echo $customerAttributes->setExcludeFileAttributes(true)->toHtml()?>
-                <?php endif;?>
+
+                <?php if ($this->isTaxvatEnabled()):?>
+                <li class="form-group"><?php echo $this->getTaxvatHtml() ?></li>
+                <?php endif; ?>
+
                 <li class="fields" id="register-customer-password">
                     <div class="form-group">
                         <label for="billing:customer_password" class="required"><em>*</em><?php echo $this->__('Password') ?></label>
@@ -159,7 +144,7 @@
                 <?php if ($this->isCustomerLoggedIn() && $this->customerHasAddresses()):?>
                     <li class="form-group">
                         <div class="checkbox">
-                            <input type="checkbox" name="billing[save_in_address_book]" value="1" title="<?php echo $this->__('Save in address book') ?>" id="billing:save_in_address_book" onchange="if(window.shipping) shipping.setSameAsBilling(false);"<?php if ($this->getAddress()->getSaveInAddressBook()):?> checked="checked"<?php endif;?> class="checkbox" />
+                            <input type="checkbox" name="billing[save_in_address_book]" value="1" title="<?php echo $this->__('Save in address book') ?>" id="billing:save_in_address_book" onchange="if(window.shipping) shipping.setSameAsBilling(false);"<?php if ($this->getAddress()->getSaveInAddressBook()):?> checked="checked"<?php endif;?> />
                             <label for="billing:save_in_address_book"><?php echo $this->__('Save in address book') ?></label>
                         </div>
                     </li>
@@ -174,13 +159,13 @@
     <?php if ($this->canShip()): ?>
         <li class="form-group">
             <div class="radio">
-                <input type="radio" name="billing[use_for_shipping]" id="billing:use_for_shipping_yes" value="1"<?php if ($this->isUseBillingAddressForShipping()) {?> checked="checked"<?php }?> onclick="$('shipping:same_as_billing').checked = true;" class="radio" />
+                <input type="radio" name="billing[use_for_shipping]" id="billing:use_for_shipping_yes" value="1"<?php if ($this->isUseBillingAddressForShipping()) {?> title="<?php echo  $this->__('Ship to this address') ?>" checked="checked"<?php }?> onclick="$('shipping:same_as_billing').checked = true;" />
                 <label for="billing:use_for_shipping_yes"><?php echo  $this->__('Ship to this address') ?></label>
             </div>
         </li>
         <li class="form-group">
             <div class="radio">
-                <input type="radio" name="billing[use_for_shipping]" id="billing:use_for_shipping_no" value="0"<?php if (!$this->isUseBillingAddressForShipping()) {?> checked="checked"<?php }?> onclick="$('shipping:same_as_billing').checked = false;" class="radio" />
+                <input type="radio" name="billing[use_for_shipping]" id="billing:use_for_shipping_no" value="0"<?php if (!$this->isUseBillingAddressForShipping()) {?> checked="checked"<?php }?> title="<?php echo $this->__('Ship to different address') ?>" onclick="$('shipping:same_as_billing').checked = false;" />
                 <label for="billing:use_for_shipping_no"><?php echo $this->__('Ship to different address') ?></label>
             </div>
         </li>
@@ -193,7 +178,7 @@
 <div class="form-group a-right" id="billing-buttons-container">
     <button type="button" class="btn btn-success btn-lg" onclick="billing.save()"><span><span><?php echo $this->__('Continue') ?></span></span></button>
     <span id="billing-please-wait" class="please-wait" style="display:none;">
-        <img src="<?php echo $this->getSkinUrl('images/opc-ajax-loader.gif') ?>" alt="" class="v-middle" /> <?php echo $this->__('Loading next step...') ?>
+        <img src="<?php echo $this->getSkinUrl('images/opc-ajax-loader.gif') ?>" alt="<?php echo $this->__('Loading next step...') ?>" title="<?php echo $this->__('Loading next step...') ?>" class="v-middle" /> <?php echo $this->__('Loading next step...') ?>
     </span>
 </div>
 <p class="required"><?php echo $this->__('* Required Fields') ?></p>
