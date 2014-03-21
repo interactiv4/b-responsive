@@ -1,0 +1,96 @@
+<?php
+/**
+ * Magento Enterprise Edition
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Magento Enterprise Edition License
+ * that is bundled with this package in the file LICENSE_EE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.magentocommerce.com/license/enterprise-edition
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     enterprise_default
+ * @copyright   Copyright (c) 2010 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://www.magentocommerce.com/license/enterprise-edition
+ */
+
+/**
+ * Shoping cart sidebar
+ *
+ * @see Mage_Checkout_Block_Cart_Sidebar
+ */
+?>
+
+<div class="top-cart">
+<?php $_cartQty = $this->getSummaryCount() ?>
+<?php if ($_cartQty > 0): ?>
+    <?php $_myCart = $this->__('My Cart <span class="badge">%s</span>', $_cartQty) ?>
+<?php else: ?>
+    <?php $_myCart = $this->__('My Cart <span class="badge">0</span>') ?>
+<?php endif ?>
+<?php if ($this->getIsLinkMode() || !$this->getIsNeedToDisplaySideBar()):?>
+    <div class="block-title no-items">
+        <ul class="links cart-link">
+            <li ><a href="<?php echo $this->getUrl('checkout/cart'); ?>"><?php echo $_myCart ?></a></li>
+        </ul>
+    </div>
+<?php else:?>
+    <div class="block-title<?php if(!$_cartQty) { echo (' no-items'); } ?>">
+        <strong id="cartHeader"><span class="glyphicon glyphicon-shopping-cart"></span><?php echo $_myCart ?></strong>
+    </div>
+    <div id="topCartContent" class="block-content" style="display:none">
+        <div class="inner-wrapper panel panel-default"><?php // extra div to smooth slideUp and slideDown ?>
+        <?php $_items = $this->getRecentItems() ?>
+        <?php if(count($_items)): ?>
+            <div class="panel-heading">
+                <span onclick="Enterprise.TopCart.hideCart()" class="glyphicon glyphicon-remove-circle"></span>
+                <h3 class="panel-title"><?php echo $this->__('Recently added item(s)') ?></h3>
+            </div>
+            <div class="panel-body">
+                <ol id="mini-cart" class="mini-products-list">
+                <?php foreach($_items as $_item): ?>
+                    <?php echo $this->getItemHtml($_item) ?>
+                <?php endforeach; ?>
+                </ol>
+            </div>
+            <script type="text/javascript">decorateList('mini-cart', 'none-recursive')</script>
+        <?php else: ?>
+            <div class="panel-heading">
+                <span onclick="Enterprise.TopCart.hideCart()" class="glyphicon glyphicon-remove-circle"></span>
+                <h3 class="panel-title"><?php echo $this->__('Recently added item(s)') ?></h3>
+            </div>
+            <div class="cart-empty panel-body">
+                <?php echo $this->__('You have no items in your shopping cart.') ?>
+            </div>
+        <?php endif ?>
+        <?php if($_cartQty && $this->isPossibleOnepageCheckout()): ?>
+            <div class="panel-footer">
+                <p class="subtotal">
+                    <span class="label"><?php echo $this->__('Cart Subtotal:') ?></span> <?php echo Mage::helper('checkout')->formatPrice($this->getSubtotal()) ?><?php if ($_subtotalInclTax = $this->getSubtotalInclTax()): ?> / <?php echo Mage::helper('checkout')->formatPrice($_subtotalInclTax) ?> <?php echo Mage::helper('tax')->getIncExcText(true) ?><?php endif; ?>
+                </p>
+                <div class="actions">
+                    <?php echo $this->getChildHtml('extra_actions') ?>
+                    <button class="btn btn-success" type="button" onclick="setLocation('<?php echo $this->getCheckoutUrl() ?>')"><span><span><?php echo $this->__('Checkout') ?></span></span></button>
+                    <a href="<?php echo $this->getUrl('checkout/cart'); ?>" class="btn btn-default btn-sm"><span><?php echo $this->__('Go to Shopping Cart') ?></span></a>
+                </div>
+            </div>
+        <?php endif ?>
+        </div>
+    </div>
+<script type="text/javascript">
+    Enterprise.TopCart.initialize('topCartContent');
+    // Below can be used to show minicart after item added
+    // Enterprise.TopCart.showCart(7);
+</script>
+<?php endif;?>
+</div>

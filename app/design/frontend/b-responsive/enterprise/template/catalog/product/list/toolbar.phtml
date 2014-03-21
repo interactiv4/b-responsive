@@ -1,0 +1,120 @@
+<?php
+/**
+ * Magento Enterprise Edition
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Magento Enterprise Edition License
+ * that is bundled with this package in the file LICENSE_EE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.magentocommerce.com/license/enterprise-edition
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     enterprise_default
+ * @copyright   Copyright (c) 2013 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://www.magentocommerce.com/license/enterprise-edition
+ */
+?>
+<?php
+/**
+ * Product list toolbar
+ *
+ * @see Mage_Catalog_Block_Product_List_Toolbar
+ */
+?>
+<?php if($this->getCollection()->getSize()): ?>
+<div class="toolbar">
+    <?php if( $this->isExpanded() ): ?>
+    <div class="navbar navbar-default">
+        <div class="row">
+        	<div class="sort-by col-xs-6 col-sm-4">
+                <p class="navbar-text"><?php echo $this->__('Sort By') ?></p>
+                <select onchange="setLocation(this.value)">
+                <?php foreach($this->getAvailableOrders() as $_key=>$_order): ?>
+                    <option value="<?php echo $this->getOrderUrl($_key, 'asc') ?>"<?php if($this->isOrderCurrent($_key)): ?> selected="selected"<?php endif; ?>>
+                        <?php echo $this->__($_order) ?>
+                    </option>
+                <?php endforeach; ?>
+                </select>
+                <?php if($this->getCurrentDirection() == 'desc'): ?>
+                    <a href="<?php echo $this->getOrderUrl(null, 'asc') ?>"><img src="<?php echo $this->getSkinUrl('images/sort_desc_arrow.gif') ?>" alt="<?php echo $this->__('Set Ascending Direction') ?>" class="v-middle" /></a>
+                <?php else: ?>
+                    <a href="<?php echo $this->getOrderUrl(null, 'desc') ?>"><img src="<?php echo $this->getSkinUrl('images/sort_asc_arrow.gif') ?>" alt="<?php echo $this->__('Set Descending Direction') ?>" class="v-middle" /></a>
+                <?php endif; ?>
+            </div>
+    	   
+           <div class="col-sm-4 hidden-xs">
+                <?php if($this->getLastPageNum()>1): ?>
+                    <p class="navbar-text"><?php echo $this->__('Items %s-%s of %s', $this->getFirstNum(), $this->getLastNum(), $this->getTotalNum()) ?></p>
+                <?php else: ?>
+                    <p class="navbar-text"><?php echo $this->__('%s Item(s)', $this->getTotalNum()) ?></p>
+                <?php endif; ?>
+            </div>
+
+    <?php endif; ?>
+
+            <div class="limiter col-xs-6 col-sm-4">
+                <p class="navbar-text"><?php echo $this->__('Show') ?></p>
+                <div style="margin-top:15px;">
+                    <select onchange="setLocation(this.value)">
+                    <?php foreach ($this->getAvailableLimit() as  $_key=>$_limit): ?>
+                        <option value="<?php echo $this->getLimitUrl($_key) ?>"<?php if($this->isLimitCurrent($_key)): ?> selected="selected"<?php endif ?>>
+                            <?php echo $_limit ?>
+                        </option>
+                    <?php endforeach; ?>
+                    </select>
+                    <?php echo $this->__('per page') ?>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <div class="row">
+        <?php if( $this->isEnabledViewSwitcher() ): ?>
+        <div class="view-mode col-xs-4 col-sm-4">
+            <ul class="pagination">
+            <?php $_modes = $this->getModes(); ?>
+            <?php if($_modes && count($_modes)>1): ?>
+            <?php $_i=1; $_fix=''; foreach ($this->getModes() as $_code=>$_label): ?>
+                <?php if ($_i==1 && strtolower($_code)=='list') $_fix='-fix'; ?>
+                <?php if($this->isModeActive($_code)): ?>
+                    <li class="active">
+                        <a class="<?php echo strtolower($_code); echo $_fix; ?>" title="<?php echo $_label ?>" href="javascript:void(0);">
+                            <?php if($_code=='list'): ?>
+                            <span class="glyphicon glyphicon-th-list"></span>
+                            <?php else: ?>
+                            <span class="glyphicon glyphicon-th-large"></span>
+                            <?php endif; ?>
+                        </a>
+                    </li>
+                <?php else: ?>
+                    <li>
+                        <a class="<?php echo strtolower($_code); echo $_fix; ?>" title="<?php echo $_label ?>" href="<?php echo $this->getModeUrl($_code) ?>">
+                            <?php if($_code=='list'): ?>
+                            <span class="glyphicon glyphicon-th-list"></span>
+                            <?php else: ?>
+                            <span class="glyphicon glyphicon-th-large"></span>
+                            <?php endif; ?>
+                        </a>
+                    </li>
+                <?php endif; ?>
+            <?php $_i++; endforeach; ?>
+            <?php endif; ?>
+            </ul>
+        </div>
+        <?php endif; ?>
+
+        <div class="col-xs-8 col-sm-8 a-right"><?php echo $this->getPagerHtml() ?></div>
+    </div>
+
+</div>
+<?php endif ?>

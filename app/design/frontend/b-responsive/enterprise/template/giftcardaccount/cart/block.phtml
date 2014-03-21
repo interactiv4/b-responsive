@@ -1,0 +1,62 @@
+<?php
+/**
+ * Magento Enterprise Edition
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Magento Enterprise Edition License
+ * that is bundled with this package in the file LICENSE_EE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.magentocommerce.com/license/enterprise-edition
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     enterprise_default
+ * @copyright   Copyright (c) 2010 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://www.magentocommerce.com/license/enterprise-edition
+ */
+?>
+<?php
+/**
+ * @see Enterprise_GiftCardAccount_Block_Checkout_Cart_Giftcardaccount
+ */
+?>
+<div class="panel panel-default panel-giftcard">
+    <div class="panel-heading">
+        <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree"><?php echo $this->__('Gift Cards') ?><span class="glyphicon glyphicon-chevron-down pull-right"></span></a>
+        </h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse">
+        <div class="panel-body">
+            <div id="giftcard_balance_lookup"></div>
+            <span id="gc-please-wait" class="please-wait" style="display:none;">
+                <img src="<?php echo $this->getSkinUrl('images/opc-ajax-loader.gif') ?>" alt="" class="v-middle" /> <?php echo $this->__('Please wait, loading...') ?>
+            </span>    
+            <form id="giftcard-form" action="<?php echo $this->getUrl('enterprise_giftcardaccount/cart/add') ?>" method="post" role="form">
+                <fieldset>
+                    <div class="form-group">
+                        <label for="giftcard_code"><?php echo $this->__('Enter the gift card code') ?></label>
+                        <input class="required-entry form-control" id="giftcard_code" name="giftcard_code" value="" />
+                        <button class="btn btn-default" onclick="giftcardForm.submit()" type="button" value="<?php echo $this->__('Add Gift Card') ?>"><span><span><?php echo $this->__('Add Gift Card') ?></span></span></button>
+                        <button class="btn btn-success check-gc-status" onclick="new Ajax.Updater('giftcard_balance_lookup', '<?php echo Mage::getUrl('enterprise_giftcardaccount/cart/quickCheck') ?>', {onCreate: function() { $('gc-please-wait').show() }, onComplete: function() { $('gc-please-wait').hide() }, parameters : {giftcard_code : $('giftcard_code').value}})" type="button" value="<?php echo $this->__('Check Gift Card status and balance') ?>"><span><span><?php echo $this->__('Check Gift Card status and balance') ?></span></span></button>
+                    </div>
+                </fieldset>
+            </form>
+
+            <script type="text/javascript">
+            //<![CDATA[
+            var giftcardForm = new VarienForm('giftcard-form');
+            //]]>
+            </script>
+        </div>
+    </div>
+</div>

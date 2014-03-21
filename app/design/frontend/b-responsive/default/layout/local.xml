@@ -1,0 +1,28 @@
+<layout version="0.1.0">
+    <default>
+        <reference name="root">
+		    <reference name="head">
+
+				<!-- Adding jquery and twitter-bootstrap-files -->
+				<action method="addItem"><type>skin_js</type><name>js/jquery.js</name></action>
+				<action method="addItem"><type>skin_js</type><name>js/bootstrap.js</name></action>
+				<action method="addItem"><type>skin_js</type><name>js/holder.js</name></action>
+				<action method="addCss"><stylesheet>css/bootstrap.css</stylesheet></action>
+				<action method="addCss"><stylesheet>css/bootstrap-theme.css</stylesheet></action>
+				<action method="addCss"><stylesheet>css/custom.css</stylesheet></action>
+			
+		    </reference>
+
+		    <reference name="catalog.topnav">
+	            <block type="core/template" name="top.menu.search" as="topMenuSearch" template="catalogsearch/form.mini.phtml"/>
+	        </reference>
+
+		</reference>
+	</default>
+
+    <catalog_product_view>
+        <reference name="root">
+            <action method="setTemplate"><template>page/1column.phtml</template></action>
+        </reference>
+    </catalog_product_view>
+</layout>
