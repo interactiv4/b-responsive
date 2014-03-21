@@ -23,6 +23,9 @@ img { max-width: 100%;}
   text-align: left;
   width: auto;
 }
+li {list-style: none}
+
+.links li {display:inline}
 
 .divider {
   background: #eee;
@@ -921,6 +924,7 @@ body {background-image:none}
 .sidebar .block .block-content {
     color: #555555;
     font-size: 12px;
+    padding: 10px;
 }
 .sidebar .block .block-content .list-group .text {
   display: inline-block;
