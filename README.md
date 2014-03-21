@@ -8,6 +8,7 @@ Magento Responsive Theme built with Twitter Bootstrap v3
 <li>Fluid 12 grid system optimized for 320px, 750px, 970px, 1170px</li>
 <li>Makes minimal changes to the default theme structure</li>
 <li>Includes just one layout file (local.xml)</li>
+<li>Compatiable with Enterprise and Community</li>
 <li>Does not include the kitchen sink</li>
 </ul>
 ================
@@ -43,6 +44,7 @@ For more information about modman see [Colin Mollenhour's Github](https://github
 
 Currently compatiable (and tested) with:
 Magento Enterprise 1.13
+Magento Community 1.8
 IE 9.0, 10.0, 11.0
 Safari, Firefox, Chrome, Android and iOS
 
