@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <RedLightBlinking_Setup>
+            <version>0.1.0</version>
+        </RedLightBlinking_Setup>
+    </modules>
+    <global>
+	<resources>
+            <redlightblinking_setup_setup>
+		<setup>
+		    <module>RedLightBlinking_Setup</module>
+		</setup>
+		<connection>
+		    <use>core_setup</use>
+		</connection>
+	  </redlightblinking_setup_setup>
+	</resources>
+    </global>
+    <frontend>
+        <layout>
+            <updates>
+                <RedLightBlinking_Setup>
+                    <file>responsive.xml</file>
+                </RedLightBlinking_Setup>
+            </updates>
+        </layout>
+     </frontend>
+</config>

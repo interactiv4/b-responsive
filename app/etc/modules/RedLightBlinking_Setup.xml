@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <RedLightBlinking_Setup>
+            <active>true</active>
+            <codePool>community</codePool>
+        </RedLightBlinking_Setup>
+    </modules>
+</config>
