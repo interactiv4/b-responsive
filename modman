@@ -1,3 +1,4 @@
 #b-responsive theme
-skin/frontend/enterprise/responsive 			skin/frontend/enterprise/responsive
-app/design/frontend/enterprise/responsive 		app/design/frontend/enterprise/responsive
+skin/frontend/b-responsive 			skin/frontend/b-responsive
+skin/frontend/enterprise/responsive skin/frontend/enterprise/responsive
+app/design/frontend/b-responsive    app/design/frontend/b-responsive
