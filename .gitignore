@@ -1,6 +1,7 @@
 .modgit/
 app/code/community/Find/
 app/code/community/Phoenix/
+app/code/community/Cm/
 app/code/core/
 app/design/adminhtml/default/default/
 app/design/adminhtml/default/find/
@@ -28,16 +29,22 @@ app/etc/modules/Mage_Persistent.xml
 app/etc/modules/Mage_Weee.xml
 app/etc/modules/Mage_Widget.xml
 app/etc/modules/Mage_XmlConnect.xml
+app/etc/modules/Mage_*.xml
+app/etc/modules/Cm_RedisSession.xml
 app/etc/modules/Phoenix_Moneybookers.xml
 app/etc/config.xml
 app/etc/enterprise.xml
 app/etc/local.xml.additional
 app/etc/local.xml.template
+app/etc/local.xml
 app/.htaccess
 app/locale/
 app/Mage.php
 cron.php
 cron.sh
+.htaccess
+.htaccess.sample
+api.php
 downloader/
 errors/
 favicon.ico
@@ -72,6 +79,9 @@ lib/PEAR/
 lib/phpseclib/
 lib/Varien/
 lib/Zend/
+lib/Magento/
+lib/Credis/
+lib/Cm/
 LICENSE_AFL.txt
 LICENSE.html
 LICENSE.txt
@@ -82,6 +92,7 @@ media/downloadable/
 media/.htaccess
 media/import/
 media/xmlconnect/
+media/
 nbproject/
 pear
 pear/
@@ -107,3 +118,4 @@ skin/install/
 var/
 .sass-cache/
 .DS_Store
+.idea
