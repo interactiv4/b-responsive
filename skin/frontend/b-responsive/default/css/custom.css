@@ -198,6 +198,11 @@ a.product-image {
   text-transform: uppercase;
 }
 
+.nav .parent:hover > .dropdown-menu {display:block; top:0; left: 100%;}
+.nav .parent {position:relative;}
+.nav .level0.parent:hover > .dropdown-menu {top:auto; left:auto;}
+.nav .level0.parent {position:static;}
+
 .sidebar .block.block-layered-nav {
   background: none;
   border: none;
