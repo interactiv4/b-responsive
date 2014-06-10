@@ -89,10 +89,13 @@ class RedLightBlinking_MegaMenu_Block_Page_Html_Topmenu extends Mage_Page_Block_
 					$html .= '</div></div>';
 				}
 
+				$html .= '<div class="see-all"><a href="'. $child->getUrl() .'">All '. $this->escapeHtml($child->getName()) .'</a></div>';
+
 				if (!empty($childrenWrapClass)) {
 					$html .= '</div>';
 				}
 			}
+
 			$html .= '</li>';
 
 			$counter++;
