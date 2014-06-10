@@ -38,6 +38,7 @@
     <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
     <?php echo $this->getChildHtml('form_before') ?>
     <form action="<?php echo $this->getUrl('checkout/cart/updatePost') ?>" method="post">
+        <?php echo $this->getBlockHtml('formkey'); ?>
         <fieldset class="table-responsive">
             <table id="shopping-cart-table" class="cart-table table table-hover">
                 <col width="1" />
