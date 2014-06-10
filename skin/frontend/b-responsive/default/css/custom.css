@@ -203,6 +203,11 @@ a.product-image {
 .nav .level0.parent:hover > .dropdown-menu {top:auto; left:auto;}
 .nav .level0.parent {position:static;}
 
+
+.nav.mega-menu li.level1 {float:left;}
+.nav.mega-menu li.level1 .dropdown-menu {position: relative; display: block; float:none; left:auto;}
+.nav.mega-menu ul.columns2 {-webkit-columns: 2; -moz-columns: 2; columns: 2; }
+
 .sidebar .block.block-layered-nav {
   background: none;
   border: none;
