@@ -1,0 +1,56 @@
+<?php /** @var $this RedLightBlinking_ProductSlider_Block_Widget_Slider */ ?>
+<?php $sliderId = $this->getSliderId() ?>
+<script type="text/javascript" src="<?php echo $this->getSkinUrl('js/productslider/jquery/jquery.jcarousel.js') ?>"></script>
+<style>
+	.jcarousel.product-slider {
+		position: relative;
+		overflow: hidden;
+		width: 100%;
+	}
+	.jcarousel.product-slider .products {
+		width: 20000em;
+		position: relative;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+	.jcarousel.product-slider .products li {
+		width: 200px;
+		float: left;
+		border: 1px solid #fff;
+		-moz-box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+</style>
+<script>
+	jQuery(function($) {
+		var $container = $('#<?php echo $sliderId ?>');
+		$container.addClass('jcarousel');
+
+		$container.on('jcarousel:reload jcarousel:create', function () {
+			var width = $container.innerWidth();
+
+			if (width >= 600) {
+				width = width / 3;
+			} else if (width >= 350) {
+				width = width / 2;
+			}
+
+			$container.jcarousel('items').css('width', width + 'px');
+		});
+
+		$container.jcarousel({
+			list: '.products'
+		});
+
+		$container.find('.control .prev').jcarouselControl({
+			target: '-=1'
+		});
+
+		$container.find('.control .next').jcarouselControl({
+			target: '+=1'
+		});
+	});
+</script>
+

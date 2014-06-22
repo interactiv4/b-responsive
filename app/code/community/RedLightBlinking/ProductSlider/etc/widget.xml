@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widgets>
+    <product_slider type="productslider/widget" translate="name description" module="productslider">
+        <name>Product Slider</name>
+        <description>Creates a slider with products</description>
+        
+        <parameters>
+
+            <title translate="label">
+                <required>1</required>
+                <visible>1</visible>
+                <label>Title</label>
+                <type>text</type>
+            </title>
+
+            <max_items translate="label">
+                <required>1</required>
+                <visible>1</visible>
+                <label>Max. Items to show</label>
+                <type>text</type>
+            </max_items>
+
+            <order translate="label description">
+                <required>1</required>
+                <visible>1</visible>
+                <label>Show First</label>
+                <type>select</type>
+                <value>top_sellers</value>
+                <values>
+                    <top_sellers translate="label">
+                        <value>top_sellers</value>
+                        <label>Top Sellers</label>
+                    </top_sellers>
+                    <!--<top_rated translate="label">-->
+                        <!--<value>top_rated</value>-->
+                        <!--<label>Top Rated</label>-->
+                    <!--</top_rated>-->
+                    <just_added translate="label">
+                        <value>just_added</value>
+                        <label>Just Added</label>
+                    </just_added>
+                    <!--<most_reviewed translate="label">-->
+                        <!--<value>most_reviewed</value>-->
+                        <!--<label>Most Reviewed</label>-->
+                    <!--</most_reviewed>-->
+                    <most_viewed translate="label">
+                        <value>most_viewed</value>
+                        <label>Most Viewed</label>
+                    </most_viewed>
+                    <random translate="label">
+                        <value>random</value>
+                        <label>Random</label>
+                    </random>
+                </values>
+                <description>Set the products order to show on the slider</description>
+            </order>
+
+            <category>
+                <visible>1</visible>
+                <required>0</required>
+                <label>Category</label>
+                <type>label</type>
+                <helper_block>
+                    <type>adminhtml/catalog_category_widget_chooser</type>
+                    <data>
+                        <button translate="open">
+                            <open>Select Category...</open>
+                        </button>
+                    </data>
+                </helper_block>
+                <sort_order>10</sort_order>
+                <description>If set, only products from this category will be shown</description>
+            </category>
+
+            <use_attribute translate="label">
+                <required>1</required>
+                <visible>1</visible>
+                <label>Filter by Attribute</label>
+                <type>select</type>
+                <source_model>adminhtml/system_config_source_yesno</source_model>
+            </use_attribute>
+
+            <attribute translate="label">
+                <required>0</required>
+                <visible>1</visible>
+                <label>Attribute</label>
+                <type>select</type>
+                <source_model>productslider/source_product_attribute</source_model>
+                <description>If chosen, please set the attribute value for this too</description>
+                <depends><use_attribute><value>1</value></use_attribute></depends>
+                <!--Check line 132 from class Mage_Widget_Model_Widget and line 194 from Mage_Widget_Block_Adminhtml_Widget_Options to see how to use this-->
+                <!--<helper_block>-->
+                    <!--<type>adminhtml/catalog_product_widget_chooser</type>-->
+                    <!--<data>-->
+                        <!--<button translate="open">-->
+                            <!--<open>Select Product...</open>-->
+                        <!--</button>-->
+                    <!--</data>-->
+                <!--</helper_block>-->
+                <!--<sort_order>10</sort_order>-->
+            </attribute>
+
+            <attribute_value translate="label">
+                <required>0</required>
+                <visible>1</visible>
+                <label>Attribute Value</label>
+                <type>text</type>
+                <description><![CDATA[Only products with this attribute value will be shown (you can use "!=", ">", ">=", "<" and "<=")]]></description>
+                <depends><use_attribute><value>1</value></use_attribute></depends>
+            </attribute_value>
+
+            <attributes translate="label">
+                <required>0</required>
+                <visible>1</visible>
+                <label>Attributes To Show</label>
+                <type>multiselect</type>
+                <description><![CDATA[Select the attributes you want to use/show for every product on the slider]]></description>
+                <source_model>productslider/source_product_attribute</source_model>
+            </attributes>
+
+            <template_path>
+                <required>0</required>
+                <visible>1</visible>
+                <label>Template</label>
+                <type>text</type>
+                <description><![CDATA[Special template for this slider (leave empty to use the default)]]></description>
+            </template_path>
+
+
+            <slider translate="label description">
+                <required>1</required>
+                <visible>1</visible>
+                <label>Slider type</label>
+                <type>select</type>
+                <source_model>productslider/source_slider</source_model>
+                <helper_block>
+                    <type>productslider/widget_slider</type>
+                </helper_block>
+                <description>Select the JS library to use for the slider (carousel)</description>
+            </slider>
+
+
+        </parameters>
+    </product_slider>
+</widgets>
