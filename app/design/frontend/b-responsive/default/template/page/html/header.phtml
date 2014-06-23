@@ -28,27 +28,32 @@
  */
 ?>
 <div class="header-panel navbar navbar-default row">
-    <div class="welcome-msg hidden-sm col-md-4 a-left">
-    	<?php echo $this->getChildHtml('welcome') ?>
-    	<?php echo $this->getAdditionalHtml() ?>
-    </div>
+    <div class="container">
+        <div class="row">
+            <div class="welcome-msg hidden-sm col-md-4 a-left">
+                <?php echo $this->getChildHtml('welcome') ?>
+                <?php echo $this->getAdditionalHtml() ?>
+            </div>
 
-    <div class="switches col-sm-12 col-md-8 a-right font12">
-    	<?php //echo $this->getChildHtml('switches') ?>
-		<?php echo $this->getChildHtml('topLinks') ?>
+            <div class="switches col-sm-12 col-md-8 a-right font12">
+                <?php //echo $this->getChildHtml('switches') ?>
+                <?php echo $this->getChildHtml('topLinks') ?>
+            </div>
+        </div>
     </div>
 </div>
 <div class="header">
-    <div class="branding">
-    <?php if ($this->getIsHomePage()):?>
-	<h1 class="logo"><a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a></h1>
-	<?php else:?>
-	<a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a>
-	<?php endif?>
+    <div class="container">
+        <div class="branding">
+        <?php if ($this->getIsHomePage()):?>
+        <h1 class="logo"><a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a></h1>
+        <?php else:?>
+        <a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a>
+        <?php endif?>
+        </div>
+
+        <div class="hidden-xs"><?php echo $this->getChildHtml('topSearch') ?></div>
     </div>
-
-    <div class="hidden-xs"><?php echo $this->getChildHtml('topSearch') ?></div>
-
 </div>
 <?php echo $this->getChildHtml('topMenu') ?>
 <?php echo $this->getChildHtml('topContainer') ?>

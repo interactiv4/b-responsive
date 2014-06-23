@@ -20,4 +20,21 @@
     <catalog_product_view>
         <remove name="reward.tooltip.tag" />
     </catalog_product_view>
+
+    <customer_logged_out>
+        <reference name="top.links">
+        	<action method="removeLinkByUrl">
+                <url helper="customer/getAccountUrl" />
+            </action>
+            <action method="addLink" translate="label title" module="customer">
+                <label>My Account</label>
+                <url>javascript:void(0)</url>
+                <title>My Account</title>
+                <prepare/>
+                <urlParams/>
+                <position>1</position>
+            </action>
+            <block type="core/template" name="customer_form_mini_login" before="-" template="customer/form/mini.login.phtml"/>
+        </reference>
+    </customer_logged_out>
 </layout>
