@@ -23,6 +23,17 @@ img { max-width: 100%;}
   text-align: left;
   width: auto;
 }
+.page.container-fluid {
+  max-width: 3000px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.page.container-fluid .footer > .container {
+  margin: 0 auto;
+  padding: 0;
+}
+
 li {list-style: none}
 
 .links li {display:inline}
@@ -36,9 +47,17 @@ li {list-style: none}
   margin: 0;
   height: auto;
 }
+.branding .logo {
+  margin: 0;
+}
 
 .header {
   width: auto;
+  padding: 20px 0;
+}
+
+.cms-home .body-wrapper {
+  padding: 0;
 }
 
 .category-view {
@@ -60,6 +79,7 @@ li {list-style: none}
   min-height: 43px;
   box-shadow: none;
   z-index: 999 !important;
+  margin-bottom: 0;
 }
 .header-panel .links {
   float: none;
@@ -74,6 +94,27 @@ li {list-style: none}
 .switches {
   background: none;
   line-height: 38px;
+  white-space: nowrap;
+}
+
+.top-cart {
+  white-space: normal;
+}
+
+#dropdown {
+  position: absolute;
+  right: 0;
+  top: 100%;
+}
+#dropdown label {
+  font-weight: normal;
+  line-height: normal;
+  text-align: left;
+}
+#dropdown .close {
+  font-size: 14px;
+  color: #333;
+  opacity: 1;
 }
 
 .buttons-set {
@@ -196,6 +237,84 @@ a.product-image {
 .navbar-inverse .navbar-nav > li > a {
   color: #999999;
   text-transform: uppercase;
+}
+
+.nav .parent:hover > .dropdown-menu {display:block; top:0; left: 100%;}
+.nav .parent {position:relative;}
+.nav .level0.parent:hover > .dropdown-menu {top:auto; left:auto;}
+.nav .level0.parent {position:static;}
+
+
+.nav.mega-menu li.level1 {float:left;}
+.nav.mega-menu li.level1 .dropdown-menu {position: relative; display: block; float:none; left:auto;}
+.nav.mega-menu ul.columns2 {-webkit-columns: 2; -moz-columns: 2; columns: 2; }
+.nav.mega-menu .dropdown-menu {
+  padding: 15px;
+}
+.nav.mega-menu .dropdown-menu .container {
+  padding: 0;
+}
+@media screen and (min-width: 900px){
+  .nav.mega-menu .dropdown-menu .container .level0 {
+    width: 64%;
+    float: left;
+  }
+}
+.nav.mega-menu .dropdown-menu .container .level0 > .level1 {
+  display: inline-block;
+  padding-right: 30px;
+  float: left;
+}
+.nav.mega-menu .dropdown-menu .container .level0 > .level1 .dropdown-menu {
+  display: inline;
+  clear: both;
+}
+.nav.mega-menu .dropdown-menu .container .level0 > .level1.parent > a {
+  display: block;
+  margin-bottom: 5px;
+}
+.nav.mega-menu .dropdown-menu .container .level0 .dropdown-menu {
+  border: none;
+  padding: 0;
+  margin-top: 5px;
+  top: 0;
+}
+@media screen and (max-width: 767px) {
+  .nav.mega-menu .level0:hover .dropdown-menu {
+    display: none !important;
+  }
+  .header form {
+    display: block;
+    clear: both;
+  }
+  .branding .logo {
+    display: block;
+    float: none;
+    margin: 0 auto 10px;
+    text-align: center;
+  }
+}
+@media screen and (min-width: 900px) {
+  .nav.mega-menu .dropdown-menu .container .static-container {
+    width: 35%;
+    float: right;
+  }
+}
+@media screen and (max-width: 899px) {
+  .nav.mega-menu .dropdown-menu .container .static-container {
+    display: none;
+  }
+}
+.nav.mega-menu .dropdown-menu .container .static-container .img-thumbnail {
+  display: block;
+  width: 100%;
+}
+.nav.mega-menu .dropdown-menu .see-all {
+  margin-top: 10px;
+}
+.nav.mega-menu .level0 > .dropdown-menu > .see-all {
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
+  padding-top: 8px;
 }
 
 .sidebar .block.block-layered-nav {
@@ -337,6 +456,11 @@ button.button.btn-proceed-checkout {
 
 footer {
   clear: both;
+}
+
+.footer ul.links li,
+.footer ul li {
+  border: none;
 }
 
 .featurette-divider {
@@ -816,6 +940,7 @@ footer {
 .toolbar .navbar {
   box-shadow: none;
   margin-bottom: 5px;
+  z-index: 10;
 }
 .toolbar .pagination {
   margin: 0;
@@ -926,6 +1051,9 @@ body {background-image:none}
     font-size: 12px;
     padding: 10px;
 }
+.sidebar .block-layered-nav .block-content {
+  padding: 0;
+}
 .sidebar .block .block-content .list-group .text {
   display: inline-block;
   line-height: 1;
@@ -940,7 +1068,7 @@ body {background-image:none}
     border-bottom: none;
     position: relative;
 }
-.header .form-search {
+.header form {
     background: none;
     float: right;
     height: auto;
@@ -989,6 +1117,21 @@ button.button span {border:none}
 
   .featurette-heading {
     font-size: 50px;
+  }
+  .header .container {
+    padding: 0;
+  }
+  .header + .navbar .container,
+  .header + .navbar .container .navbar-collapse {
+    padding: 0;
+  }
+  .header form {
+    max-width: 230px;
+  }
+}
+@media (min-width: 780px) {
+  .body-wrapper {
+    padding: 0;
   }
 }
 @media (min-width: 992px) {

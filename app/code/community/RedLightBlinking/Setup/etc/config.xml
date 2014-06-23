@@ -16,6 +16,13 @@
 		</connection>
 	  </redlightblinking_setup_setup>
 	</resources>
+        <models>
+            <core>
+                <rewrite>
+                    <design_package>RedLightBlinking_Setup_Model_Core_Design_Package</design_package>
+                </rewrite>
+            </core>
+        </models>
     </global>
     <frontend>
         <layout>

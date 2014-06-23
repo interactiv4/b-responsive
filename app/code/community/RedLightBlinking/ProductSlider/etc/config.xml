@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <RedLightBlinking_ProductSlider>
+            <version>0.1.0</version>
+        </RedLightBlinking_ProductSlider>
+    </modules>
+    <global>
+        <models>
+            <productslider>
+                <class>RedLightBlinking_ProductSlider_Model</class>
+                <resourceModel>productslider_resource</resourceModel>
+            </productslider>
+            <productslider_resource>
+                <class>RedLightBlinking_ProductSlider_Model_Resource</class>
+            </productslider_resource>
+        </models>
+        <blocks>
+            <productslider>
+                <class>RedLightBlinking_ProductSlider_Block</class>
+            </productslider>
+        </blocks>
+        <helpers>
+            <productslider>
+                <class>RedLightBlinking_ProductSlider_Helper</class>
+            </productslider>
+        </helpers>
+    </global>
+</config>

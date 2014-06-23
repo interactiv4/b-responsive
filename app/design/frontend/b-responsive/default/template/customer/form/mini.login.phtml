@@ -1,0 +1,54 @@
+<?php
+/**
+ * Magento Enterprise Edition
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Magento Enterprise Edition License
+ * that is bundled with this package in the file LICENSE_EE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.magentocommerce.com/license/enterprise-edition
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2013 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://www.magentocommerce.com/license/enterprise-edition
+ */
+?>
+<div class="panel panel-default a-left" id="dropdown" style="display: none;">
+    <div class="panel-heading">
+        <span class="glyphicon glyphicon-remove-circle close f-right"></span>
+        <h4 class="panel-title"><?php echo $this->__('Login or Register') ?></h4>
+    </div>
+    <div class="panel-body">
+        <form action="<?php echo $this->getUrl('customer/account/loginPost') ?>" method="post" class="form-horizontal">
+            <?php echo $this->getBlockHtml('formkey'); ?>
+            <div class="form-group">
+                <label for="mini-login" class="col-sm-3 control-label font12"><?php echo $this->__('Email:') ?></label>
+                <div class="col-sm-9">
+                    <input type="text" name="login[username]" id="mini-login" class="form-control input-sm" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="mini-password" class="col-sm-3 control-label font12"><?php echo $this->__('Password:') ?></label>
+                <div class="col-sm-9">
+                    <input type="password" name="login[password]" id="mini-password" class="form-control input-sm" />
+                </div>
+            </div>
+            <div class="actions">
+                <button type="submit" class="btn btn-primary"><span><span><?php echo $this->__('Login') ?></span></span></button>
+                <a href="<?php echo $this->getUrl('customer/account/create') ?>" class="btn btn-default"><?php echo $this->__('Register') ?></a>
+                <a href="<?php echo $this->getUrl('customer/account/forgotpassword') ?>" class="btn btn-link"><?php echo $this->__('Forgot Your Password?') ?></a>
+            </div>
+        </form>
+    </div>
+</div>

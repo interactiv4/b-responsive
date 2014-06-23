@@ -1,0 +1,30 @@
+<?php
+/**
+ * Top menu for store
+ *
+ * @var $this RedLightBlinking_MegaMenu_Block_Page_Html_Topmenu
+ */
+?>
+<?php $_menu = $this->getHtml('dropdown', 'dropdown-menu') ?>
+<?php if($_menu): ?>
+	<div class="navbar navbar-inverse navbar-static-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<div class="visible-xs">
+					<div class="form-search-xs"><?php echo $this->getChildHtml('topMenuSearch') ?></div>
+				</div>
+			</div>
+			<div class="navbar-collapse collapse">
+				<ul class="nav mega-menu navbar-nav">
+					<?php echo $_menu ?>
+				</ul>
+			</div>
+		</div>
+	</div>
+<?php endif ?>

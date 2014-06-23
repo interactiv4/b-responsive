@@ -40,12 +40,11 @@
     <?php echo $this->getChildHtml('global_notices') ?>
     <div class="page container">
         <?php echo $this->getChildHtml('header') ?>
-        <?php echo $this->getChildHtml('global_messages') ?>
-        <?php echo $this->getChildHtml('breadcrumbs') ?>
-        
-            <div class="span12">
-                <?php echo $this->getChildHtml('content') ?>
-            </div>
+        <div class="container body-wrapper">
+            <?php echo $this->getChildHtml('global_messages') ?>
+            <?php echo $this->getChildHtml('breadcrumbs') ?>
+        </div>
+        <?php echo $this->getChildHtml('content') ?>
         
         <?php echo $this->getChildHtml('footer') ?>
         <?php echo $this->getChildHtml('global_cookie_notice') ?>
