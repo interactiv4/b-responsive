@@ -1,4 +1,4 @@
-b-responsive v 1.0.0 beta
+b-responsive v 1.2.0 
 ================
 
 Magento Responsive Theme built with Twitter Bootstrap v3

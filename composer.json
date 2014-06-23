@@ -1,0 +1,15 @@
+{
+    "name": "redlightblinking/b-responsive",
+    "description": "Magento Responsive Theme built with Twitter Bootstrap v3",
+    "type": "magento-module",
+    "license": "GPL",
+    "authors": [
+        {
+            "name": "Red Light Blinking",
+            "email": "info@redlightblinking.com"
+        }
+    ],
+    "require": {
+        "magento-hackathon/magento-composer-installer": "*"
+    }
+}
