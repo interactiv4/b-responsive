@@ -43,8 +43,8 @@ For more information about modman see [Colin Mollenhour's Github](https://github
 
 
 Currently compatiable (and tested) with:
-Magento Enterprise 1.13
-Magento Community 1.8
+Magento Enterprise 1.13, 1.14
+Magento Community 1.8, 1.9
 IE 9.0, 10.0, 11.0
 Safari, Firefox, Chrome, Android and iOS
 
