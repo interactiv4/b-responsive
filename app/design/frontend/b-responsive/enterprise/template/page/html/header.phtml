@@ -1,32 +1,33 @@
-<div class="header-panel navbar navbar-default row">
-    <div class="welcome-msg hidden-xs col-sm-4 col-md-4 a-left"><?php echo $this->getChildHtml('welcome') ?></div>
+<div class="header-panel navbar navbar-default">
+    <div class="container">
+    	<div class="row">
+    		<div class="welcome-msg hidden-xs col-sm-6 a-left"><?php echo $this->getChildHtml('welcome') ?></div>
 
-    <div class="hidden-xs col-sm-4 col-md-4">
-    	<?php echo $this->getChildHtml('accountLinks') ?>
-	</div>
+		    <div class="switches col-xs-12 col-sm-6 a-right"><?php //echo $this->getChildHtml('switches') ?>
 
-    <div class="switches col-xs-12 col-sm-4 col-md-4 a-right"><?php //echo $this->getChildHtml('switches') ?>
-
-		<div class="checkout-link">
-			<?php echo $this->getChildHtml('topCart') ?>
-		</div>
-		
-		<span class="glyphicon glyphicon-user"></span>
-		<?php echo $this->getChildHtml('topLinks') ?>
+				<div class="checkout-link">
+					<?php echo $this->getChildHtml('topCart') ?>
+				</div>
+				
+				<span class="glyphicon glyphicon-user"></span>
+				<?php echo $this->getChildHtml('topLinks') ?>
+		    </div>
+    	</div>
     </div>
 </div>
 <div class="header">
-    <div class="branding">
-    <?php if ($this->getIsHomePage()):?>
-	<h1 class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a></h1>
-	<?php else:?>
-	<a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a>
-	<?php endif?>
-	<?php echo $this->getChildHtml('headerCallout') ?>
+    <div class="container">
+    	<div class="branding">
+	    <?php if ($this->getIsHomePage()):?>
+		<h1 class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a></h1>
+		<?php else:?>
+		<a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a>
+		<?php endif?>
+		<?php echo $this->getChildHtml('headerCallout') ?>
+	    </div>
+
+	    <?php echo $this->getChildHtml('topSearch') ?>
     </div>
-
-    <?php echo $this->getChildHtml('topSearch') ?>
-
 </div>
 <?php echo $this->getChildHtml('topMenu') ?>
 <?php echo $this->getChildHtml('topContainer') ?>

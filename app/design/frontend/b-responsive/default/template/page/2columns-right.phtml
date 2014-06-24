@@ -40,15 +40,16 @@
     <?php echo $this->getChildHtml('global_notices') ?>
     <div class="page container">
         <?php echo $this->getChildHtml('header') ?>
-        <?php echo $this->getChildHtml('global_messages') ?>
-        <?php echo $this->getChildHtml('breadcrumbs') ?>
-        <div class="row">
-            <div class="col-sm-9">
-                <?php echo $this->getChildHtml('content') ?>
+        <div class="container body-wrapper">
+            <?php echo $this->getChildHtml('global_messages') ?>
+            <?php echo $this->getChildHtml('breadcrumbs') ?>
+            <div class="row">
+                <div class="col-sm-9">
+                    <?php echo $this->getChildHtml('content') ?>
+                </div>
+                <div class="col-sm-3 sidebar"><?php echo $this->getChildHtml('right') ?></div>
             </div>
-            <div class="col-sm-3 sidebar"><?php echo $this->getChildHtml('right') ?></div>
         </div>
-        
         <?php echo $this->getChildHtml('footer') ?>
         <?php echo $this->getChildHtml('global_cookie_notice') ?>
         <?php echo $this->getChildHtml('before_body_end') ?>
