@@ -134,20 +134,24 @@ class RedLightBlinking_ProductSlider_Block_Widget extends Mage_Core_Block_Templa
 	private function _addAttributesToSelect($products)
 	{
 		$attributes = $this->getAttributes();
+		$forcedAttributes = array(
+			'name',
+			'small_image'
+		);
+		$products->addAttributeToSelect($forcedAttributes);
+
 		if($attributes){
 			$attributes = explode(',', $attributes);
 			foreach($attributes as $attribute){
+				if(in_array($attribute, $forcedAttributes)){
+					continue;
+				}
 				$products->addAttributeToSelect($attribute);
 				if($attribute == 'price'){
 					$products->addPriceData();
 				}
 			}
 		}
-		// always add small_image and name:
-		$products->addAttributeToSelect(array(
-			'name',
-			'small_image'
-		));
 	}
 
 	public function getSliderJs()
