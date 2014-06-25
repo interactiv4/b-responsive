@@ -143,6 +143,11 @@ class RedLightBlinking_ProductSlider_Block_Widget extends Mage_Core_Block_Templa
 				}
 			}
 		}
+		// always add small_image and name:
+		$products->addAttributeToSelect(array(
+			'name',
+			'small_image'
+		));
 	}
 
 	public function getSliderJs()
