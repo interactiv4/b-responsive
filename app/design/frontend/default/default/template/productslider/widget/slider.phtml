@@ -3,12 +3,21 @@
 <?php if(count($products)): ?>
 <?php $_helper = $this->helper('catalog/output'); ?>
 <div class="product-slider" id="<?php echo $this->getSliderId() ?>">
-	<div class="title"><?php echo $this->escapeHtml($this->getTitle()) ?></div>
+	<div class="title">
+		<h3><?php echo $this->escapeHtml($this->getTitle()) ?></h3>
+	</div>
+	<div class="a-right">
+		<div class="btn-group control">
+			<a href="javascript:void(0);" class="btn btn-default btn-sm prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+			<a href="javascript:void(0);" class="btn btn-default btn-sm next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+		</div>
+	</div>
+	
 	<ul class="products">
 		<?php foreach($products as $_product): ?>
 			<li>
 				<a href="<?php echo $_product->getProductUrl() ?>" class="product-image"><img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(200); ?>" class="img-thumbnail" /></a>
-				<h2 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></a></h2>
+				<h5 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></a></h5>
 				<?php // echo $this->getPriceHtml($_product, true) ?>
 				<div class="actions">
 					<?php if($_product->isSaleable()): ?>
@@ -29,10 +38,6 @@
 			</li>
 		<?php endforeach ?>
 	</ul>
-	<div class="control">
-		<a href="javascript:void(0);" class="prev">&lt;</a>
-		<a href="javascript:void(0);" class="next">&gt;</a>
-	</div>
 </div>
 <?php endif ?>
 <?php echo $this->getSliderJs() ?>

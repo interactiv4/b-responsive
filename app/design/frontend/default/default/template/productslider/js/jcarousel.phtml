@@ -16,11 +16,15 @@
 	}
 	.jcarousel.product-slider .products li {
 		width: 200px;
-		float: left;
-		border: 1px solid #fff;
-		-moz-box-sizing: border-box;
-		-webkit-box-sizing: border-box;
-		box-sizing: border-box;
+		display: inline-block;
+		vertical-align: top;
+		-moz-box-sizing: padding-box;
+		-webkit-box-sizing: padding-box;
+		box-sizing: padding-box;
+	}
+	.jcarousel.product-slider .btn-group {
+		margin-bottom: 20px;
+		margin-top: -35px;
 	}
 </style>
 <script>
@@ -31,7 +35,11 @@
 		$container.on('jcarousel:reload jcarousel:create', function () {
 			var width = $container.innerWidth();
 
-			if (width >= 600) {
+			if (width >= 1024) {
+				width = width / 5;
+			} else if (width >= 900) {
+				width = width / 4;
+			} else if (width >= 600) {
 				width = width / 3;
 			} else if (width >= 350) {
 				width = width / 2;

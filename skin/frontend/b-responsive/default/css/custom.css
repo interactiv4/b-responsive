@@ -116,6 +116,13 @@ li {list-style: none}
   color: #333;
   opacity: 1;
 }
+#dropdown .actions .btn-link {
+  clear: both;
+  display: block;
+  margin-top: 8px;
+  padding-left: 0;
+  text-align: left;
+}
 
 .buttons-set {
   margin: 2em 0;
@@ -292,6 +299,9 @@ a.product-image {
     float: none;
     margin: 0 auto 10px;
     text-align: center;
+  }
+  .switches {
+    text-align: 
   }
 }
 @media screen and (min-width: 900px) {
@@ -1054,6 +1064,14 @@ body {background-image:none}
 .sidebar .block-layered-nav .block-content {
   padding: 0;
 }
+.sidebar .block-layered-nav .block-content .filter-state .list-group {
+  margin-bottom: 0;
+}
+.sidebar .block-layered-nav .block-content .filter-state + .actions {
+  background: none;
+  padding: 0;
+  margin: 10px 0;
+}
 .sidebar .block .block-content .list-group .text {
   display: inline-block;
   line-height: 1;
@@ -1245,6 +1263,9 @@ button.button span {border:none}
   }
 }
 @media screen and (max-width: 360px) {
+  #dropdown {
+    width: 100% !important;
+  }
   .panel-body .item.col-xs-6 {
     width: 100%;
   }
