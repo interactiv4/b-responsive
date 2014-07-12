@@ -8,6 +8,8 @@ class RedLightBlinking_ProductSlider_Block_Widget extends Mage_Core_Block_Templa
 {
 
 	protected $_defaultTemplate = 'productslider/widget/slider.phtml';
+	/** @var Mage_Review_Block_Helper _reviewsHelperBlock */
+	protected $_reviewsHelperBlock;
 
 
 	protected function _construct()
@@ -47,7 +49,6 @@ class RedLightBlinking_ProductSlider_Block_Widget extends Mage_Core_Block_Templa
 		if($maxItems) {
 			$products->setPageSize($maxItems);
 		}
-
 		return $products;
 	}
 
@@ -119,6 +120,9 @@ class RedLightBlinking_ProductSlider_Block_Widget extends Mage_Core_Block_Templa
 			case 'random':
 				$products->setOrderByRandom();
 				break;
+			case 'created_at':
+				$products->setOrder('created_at');
+				break;
 //			case 'top_rated':
 //				$products->addViewsCount()->setOrderByViews();
 //				break;
@@ -133,13 +137,23 @@ class RedLightBlinking_ProductSlider_Block_Widget extends Mage_Core_Block_Templa
 	 */
 	private function _addAttributesToSelect($products)
 	{
+
+		$products
+			->addAttributeToSelect(Mage::getSingleton('catalog/config')->getProductAttributes())
+			->addMinimalPrice()
+			->addFinalPrice()
+			->addTaxPercents()
+			->addUrlRewrite();
+
+		// append Rating Review:
+		// Mage::getModel('review/review')->appendSummary($products);
+
 		$attributes = $this->getAttributes();
 		$forcedAttributes = array(
 			'name',
 			'small_image'
 		);
 		$products->addAttributeToSelect($forcedAttributes);
-
 		if($attributes){
 			$attributes = explode(',', $attributes);
 			foreach($attributes as $attribute){
@@ -171,6 +185,28 @@ class RedLightBlinking_ProductSlider_Block_Widget extends Mage_Core_Block_Templa
 	public function getSliderId()
 	{
 		return 'product_slider_'.$this->_nameInLayout;
+	}
+
+
+	/**
+	 * Get product reviews summary
+	 *
+	 * @param Mage_Catalog_Model_Product $product
+	 * @param bool $templateType
+	 * @param bool $displayIfNoReviews
+	 * @return string
+	 */
+	public function getReviewsSummaryHtml(Mage_Catalog_Model_Product $product, $templateType = false,
+										  $displayIfNoReviews = false)
+	{
+		if (!Mage::helper('catalog')->isModuleEnabled('Mage_Review')) {
+			return '';
+		} else {
+			if( ! $this->_reviewsHelperBlock){
+				$this->_reviewsHelperBlock = $this->getLayout()->createBlock('review/helper');
+			}
+			return $this->_reviewsHelperBlock->getSummaryHtml($product, $templateType, $displayIfNoReviews);
+		}
 	}
 
 }
