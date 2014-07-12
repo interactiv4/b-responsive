@@ -11,6 +11,20 @@ Magento Responsive Theme built with Twitter Bootstrap v3
 <li>Compatible with Enterprise and Community</li>
 <li>Does not include the kitchen sink</li>
 </ul>
+<p>1.1.0<p/>
+Fully Responsive theme for Magento Enterprise 1.13
+<p>1.1.0</p>
+Added Community Edition 1.8 Support<br/>
+Modman Support
+<p>1.2.0</p>
+Drop down Login box<br/>
+Configurable Product Slider Widget<br/>
+Mega Menu - exploded menu containing static blocks<br/>
+Fallback Theme support for b-resonsive package for CE and EE<br/>
+Tested for CE 1.9, EE 1.14 (no changes required)
+<br/>
+Composer Support
+
 ================
 
 ![alt tag](http://www.redlightblinking.com/wp-content/uploads/2013/12/boostrap-responsive.png)
@@ -42,11 +56,10 @@ For more information about modman see [Colin Mollenhour's Github](https://github
 ================
 
 
-Currently compatiable (and tested) with:
-Magento Enterprise 1.13, 1.14
-Magento Community 1.8, 1.9
-IE 9.0, 10.0, 11.0
-Safari, Firefox, Chrome, Android and iOS
+Currently compatiable (and tested) with:<br/>
+Magento Community 1.8, 1.9<br/>
+IE 9.0, 10.0, 11.0<br/>
+Safari, Firefox, Chrome, Android and iOS<br/>
 
 Additional browsers, versions and community support coming soon...
 
