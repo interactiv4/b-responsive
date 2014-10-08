@@ -43,8 +43,8 @@
                     <textarea class="form-control" id="message" name="message" cols="60" rows="5"><?php echo $this->getEnteredData('message') ?></textarea>
                 </li>
                 <?php if($this->helper('wishlist')->isRssAllow()): ?>
-                <li class="form-group">
-                    <label><input type="checkbox" name="rss_url" id="rss_url" value="1" title="<?php echo $this->__('Check this checkbox if you want to add a link to an rss feed to your wishlist.') ?>" class="checkbox" />
+                <li class="checkbox">
+                    <label><input type="checkbox" name="rss_url" id="rss_url" value="1" title="<?php echo $this->__('Check this checkbox if you want to add a link to an rss feed to your wishlist.') ?>" />
                     <?php echo $this->__('Check this checkbox if you want to add a link to an rss feed to your wishlist.') ?></label>
                 </li>
                 <?php endif; ?>

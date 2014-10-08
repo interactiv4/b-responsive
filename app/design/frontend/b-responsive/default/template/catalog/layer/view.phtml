@@ -33,8 +33,13 @@
 ?>
 <?php if($this->canShowBlock()): ?>
 <div class="block block-layered-nav">
-    <h5><?php echo $this->__('Shop By') ?></h5>
-    <div class="block-content">
+    <div class="visible-xs">
+        <a class="btn btn-default btn-block a-right" href="#filter-list" data-toggle="collapse">
+            <span class="pull-left"><?php echo $this->__('Shop By') ?></span>
+            <span class="glyphicon glyphicon-chevron-down"></span>
+        </a>
+    </div>
+    <div class="block-content" id="filter-list">
         <?php echo $this->getStateHtml() ?>
         <?php if ($this->getLayer()->getState()->getFilters()): ?>
             <div class="actions"><a class="btn btn-default btn-sm btn-block" href="<?php echo $this->getClearUrl() ?>"><?php echo $this->__('Clear All') ?></a></div>
@@ -45,8 +50,15 @@
                 <?php $_filters = $this->getFilters() ?>
                 <?php foreach ($_filters as $_filter): ?>
                 <?php if($_filter->getItemsCount()): ?>
-                    <div class="list-group-item active"><?php echo $this->__($_filter->getName()) ?></div>
-                    <?php echo $_filter->getHtml() ?>
+                    <?php $attributeModel = $_filter->getAttributeModel() ?>
+                    <div class="list-group-item active a-right">
+                        <span class="pull-left"><?php echo $this->__($_filter->getName()) ?></span>
+                        <a href="#<?php if($attributeModel) echo $attributeModel->getAttributeCode(); else echo 'category'; ?>" data-toggle="collapse" class="glyphicon glyphicon-plus"></a>
+                    </div>
+                    
+                    <div class="collapse" id="<?php if($attributeModel) echo $attributeModel->getAttributeCode(); else echo 'category'; ?>">
+                        <?php echo $_filter->getHtml() ?>
+                    </div>
                 <?php endif; ?>
                 <?php endforeach; ?>
             </div>

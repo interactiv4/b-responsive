@@ -94,7 +94,7 @@
 <?php $_columnCount = $this->getColumnCount(); ?>
 <?php $i=0; foreach ($_productCollection as $_product): ?>
     <?php if ($i++%$_columnCount==0): ?>
-    <ul class="products-grid row container">
+    <ul class="products-grid row">
     <?php endif ?>
         <li class="col-xs-4<?php if(($i-1)%$_columnCount==0): ?> first<?php elseif($i%$_columnCount==0): ?> last<?php endif; ?>">
             <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image"><img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(200); ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="img-thumbnail" /></a>

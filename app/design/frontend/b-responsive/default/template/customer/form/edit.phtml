@@ -54,7 +54,7 @@
                 <li class="form-group"><?php echo $_gender->setGender($this->getCustomer()->getGender())->toHtml() ?></li>
             <?php endif ?>
                 <li class="checkbox">
-                    <label><input type="checkbox" name="change_password" id="change_password" value="1" onclick="setPasswordForm(this.checked)" title="<?php echo $this->__('Change Password') ?>"<?php if($this->getCustomer()->getChangePassword()==1): ?> checked="checked"<?php endif; ?> class="checkbox" /><?php echo $this->__('Change Password') ?></label>
+                    <label><input type="checkbox" name="change_password" id="change_password" value="1" onclick="setPasswordForm(this.checked)" title="<?php echo $this->__('Change Password') ?>"<?php if($this->getCustomer()->getChangePassword()==1): ?> checked="checked"<?php endif; ?> /><?php echo $this->__('Change Password') ?></label>
                 </li>
             </ul>
         </div>

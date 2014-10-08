@@ -57,10 +57,10 @@
                 <?php endif ?>
             </li>
             <?php endif ?>
-            <li class="form-group">
+            <li>
                 <div class="checkbox">
-                    <input type="checkbox" name="change_password" id="change_password" value="1" onclick="setPasswordForm(this.checked)" title="<?php echo $this->__('Change Password') ?>"<?php if($this->getCustomer()->getChangePassword()==1): ?> checked="checked"<?php endif; ?> class="checkbox" />
-                    <label for="change_password"><?php echo $this->__('Change Password') ?></label>
+                    <label for="change_password"><input type="checkbox" name="change_password" id="change_password" value="1" onclick="setPasswordForm(this.checked)" title="<?php echo $this->__('Change Password') ?>"<?php if($this->getCustomer()->getChangePassword()==1): ?> checked="checked"<?php endif; ?> />
+                    <?php echo $this->__('Change Password') ?></label>
                 </div>
             </li>
         </ul>

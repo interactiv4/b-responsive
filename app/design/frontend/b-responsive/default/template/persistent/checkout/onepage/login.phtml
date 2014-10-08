@@ -92,14 +92,18 @@
                     <ul>
                         <?php if( $this->getQuote()->isAllowedGuestCheckout() ): ?>
                         <li class="radio">
-                            <input type="radio" name="checkout_method" id="login:guest" value="guest"<?php if($this->getQuote()->getCheckoutMethod()==Mage_Checkout_Model_Type_Onepage::METHOD_GUEST): ?> checked="checked"<?php endif; ?> />
-                            <label for="login:guest"><?php echo $this->__('Checkout as Guest') ?></label>
+                            <label for="login:guest">
+                                <input type="radio" name="checkout_method" id="login:guest" value="guest"<?php if($this->getQuote()->getCheckoutMethod()==Mage_Checkout_Model_Type_Onepage::METHOD_GUEST): ?> checked="checked"<?php endif; ?> />
+                                <?php echo $this->__('Checkout as Guest') ?>
+                            </label>
                         </li>
                         <?php endif; ?>
                         
                         <li class="radio">
-                            <input type="radio" name="checkout_method" id="login:register" value="register"<?php if($this->getQuote()->getCheckoutMethod()==Mage_Checkout_Model_Type_Onepage::METHOD_REGISTER || !$this->getQuote()->isAllowedGuestCheckout()): ?> checked="checked"<?php endif ?> />
-                            <label for="login:register"><?php echo $this->__('Register') ?></label>
+                            <label for="login:register">
+                                <input type="radio" name="checkout_method" id="login:register" value="register"<?php if($this->getQuote()->getCheckoutMethod()==Mage_Checkout_Model_Type_Onepage::METHOD_REGISTER || !$this->getQuote()->isAllowedGuestCheckout()): ?> checked="checked"<?php endif ?> />
+                                <?php echo $this->__('Register') ?>
+                            </label>
                         </li>
                         
                     </ul>
