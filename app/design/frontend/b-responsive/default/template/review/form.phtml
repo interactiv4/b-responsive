@@ -58,7 +58,9 @@
                             <tr>
                                 <th><?php echo $this->escapeHtml($_rating->getRatingCode()) ?></th>
                             <?php foreach ($_rating->getOptions() as $_option): ?>
-                                <td class="value"><input type="radio" name="ratings[<?php echo $_rating->getId() ?>]" id="<?php echo $this->escapeHtml($_rating->getRatingCode()) ?>_<?php echo $_option->getValue() ?>" value="<?php echo $_option->getId() ?>" class="radio" /></td>
+                                <td class="value">
+                                    <div class="radio"><input type="radio" name="ratings[<?php echo $_rating->getId() ?>]" id="<?php echo $this->escapeHtml($_rating->getRatingCode()) ?>_<?php echo $_option->getValue() ?>" value="<?php echo $_option->getId() ?>" /></div>
+                                </td>
                             <?php endforeach; ?>
                             </tr>
                         <?php endforeach; ?>

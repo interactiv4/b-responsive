@@ -9,7 +9,7 @@
     $_helper    = $this->helper('catalog/output');
     $_category  = $this->getCurrentCategory();
 ?>
-<div class="page-header">
+<div class="page-header hidden-xs">
 <?php if($this->IsRssCatalogEnable()): ?>
     <a href="<?php echo $this->getRssLink() ?>" title="<?php echo $this->__('Subscribe to RSS Feed') ?>" class="rss-feed"><?php echo $this->__('Subscribe to RSS Feed') ?></a>
 <?php endif; ?>

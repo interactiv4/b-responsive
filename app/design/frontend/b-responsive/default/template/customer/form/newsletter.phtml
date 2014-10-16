@@ -34,7 +34,7 @@
         <div class="col-xs-12 col-md-6 col-md-offset-6 col-md-pull-6">
             <?php echo $this->getBlockHtml('formkey')?>
             <ul>
-                <li class="checkbox"><label><input type="checkbox" name="is_subscribed" id="subscription" value="1" title="<?php echo $this->__('General Subscription') ?>"<?php if($this->getIsSubscribed()): ?> checked="checked"<?php endif; ?> class="checkbox" /><?php echo $this->__('General Subscription') ?></label></li>
+                <li class="checkbox"><label><input type="checkbox" name="is_subscribed" id="subscription" value="1" title="<?php echo $this->__('General Subscription') ?>"<?php if($this->getIsSubscribed()): ?> checked="checked"<?php endif; ?> /><?php echo $this->__('General Subscription') ?></label></li>
                 <?php /* Extensions placeholder */ ?>
                 <?php echo $this->getChildHtml('customer.form.newsletter.extra')?>
             </ul>
