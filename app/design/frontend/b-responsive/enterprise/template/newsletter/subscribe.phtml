@@ -1,13 +1,17 @@
 <div class="col-md-4">
-<form action="<?php echo $this->getFormActionUrl() ?>" method="post" id="newsletter-validate-detail">
+	<form action="<?php echo $this->getFormActionUrl() ?>" method="post" id="newsletter-validate-detail">
+		<label for="newsletter"><?php echo $this->__('Sign Up for Our Newsletter:') ?></label>
+		<div class="input-group">
+	        <input name="email" type="text" id="newsletter" value="<?php echo $this->__('Enter your email address') ?>" onclick="this.value=='<?php echo $this->__('Enter your email address') ?>'?this.value='':''" onblur="this.value==''?this.value='<?php echo $this->__('Enter your email address') ?>':''" class="form-control required-entry validate-email" />
+	        <span class="input-group-btn">
+	        	<button type="submit" class="btn btn-default" title="<?php echo $this->__('Subscribe') ?>"><span><span><?php echo $this->__('Subscribe') ?></span></span></button>
+	        </span>
+        </div>
+	</form>
 
-        <label for="newsletter"><?php echo $this->__('Sign Up for Our Newsletter:') ?></label>
-        <input name="email" type="text" id="newsletter" value="<?php echo $this->__('Enter your email address') ?>" onclick="this.value=='<?php echo $this->__('Enter your email address') ?>'?this.value='':''" onblur="this.value==''?this.value='<?php echo $this->__('Enter your email address') ?>':''" class="form-control required-entry validate-email" />
-        <button type="submit" class="btn btn-default" title="<?php echo $this->__('Subscribe') ?>"><span><span><?php echo $this->__('Subscribe') ?></span></span></button>
-</form>
+	<script type="text/javascript">
+	//<![CDATA[
+	    var newsletterSubscriberFormDetail = new VarienForm('newsletter-validate-detail');
+	//]]>
+	</script>
 </div>
-<script type="text/javascript">
-//<![CDATA[
-    var newsletterSubscriberFormDetail = new VarienForm('newsletter-validate-detail');
-//]]>
-</script>
