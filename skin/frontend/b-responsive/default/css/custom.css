@@ -61,6 +61,7 @@ li {list-style: none}
 
 .cms-home .body-wrapper {
   padding: 0;
+  width: 100%;
 }
 
 .category-view {
@@ -317,6 +318,10 @@ a.product-image {
   }
   .switches {
     text-align: left !important;
+  }
+  #dropdown {
+    right: auto;
+    left: 0;
   }
   .catalog-category-view .navbar-inverse {
     margin: 0 10px 5px;
@@ -1184,10 +1189,6 @@ button.button span {border:none}
     font-size: 50px;
   }
   .header .container {
-    padding: 0;
-  }
-  .header + .navbar .container,
-  .header + .navbar .container .navbar-collapse {
     padding: 0;
   }
   .header form {
