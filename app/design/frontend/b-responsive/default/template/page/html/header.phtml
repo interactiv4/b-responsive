@@ -35,7 +35,7 @@
                 <?php echo $this->getAdditionalHtml() ?>
             </div>
 
-            <div class="switches col-sm-12 col-md-8 a-right font12">
+            <div class="switches col-xs-12 col-md-8 a-right font12">
                 <?php //echo $this->getChildHtml('switches') ?>
                 <?php echo $this->getChildHtml('topLinks') ?>
             </div>
@@ -52,7 +52,7 @@
         <?php endif?>
         </div>
 
-        <div class="hidden-xs"><?php echo $this->getChildHtml('topSearch') ?></div>
+        <?php echo $this->getChildHtml('topSearch') ?>
     </div>
 </div>
 <?php echo $this->getChildHtml('topMenu') ?>
