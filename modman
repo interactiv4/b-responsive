@@ -1,6 +1,10 @@
 #b-responsive theme
-app/code/community/RedLightBlinking         app/code/community/RedLightBlinking
-app/design/frontend/b-responsive            app/design/frontend/b-responsive
-app/etc/modules/RedLightBlinking_Setup.xml  app/etc/modules/RedLightBlinking_Setup.xml
-skin/frontend/b-responsive                  skin/frontend/b-responsive
-skin/frontend/enterprise/responsive         skin/frontend/enterprise/responsive
+app/code/community/RedLightBlinking                         app/code/community/RedLightBlinking
+app/design/frontend/b-responsive                            app/design/frontend/b-responsive
+app/design/frontend/default/default/template/productslider  app/design/frontend/default/default/template/productslider
+app/etc/modules/RedLightBlinking_Setup.xml                  app/etc/modules/RedLightBlinking_Setup.xml
+app/etc/modules/RedLightBlinking_MegaMenu.xml               app/etc/modules/RedLightBlinking_MegaMenu.xml
+app/etc/modules/RedLightBlinking_ProductSlider.xml          app/etc/modules/RedLightBlinking_ProductSlider.xml
+skin/frontend/b-responsive                                  skin/frontend/b-responsive
+skin/frontend/enterprise/responsive                         skin/frontend/enterprise/responsive
+skin/frontend/default/default/js/productslider              skin/frontend/default/default/js/productslider

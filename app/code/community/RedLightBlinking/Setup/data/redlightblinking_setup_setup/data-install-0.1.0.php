@@ -8,12 +8,12 @@ try{
     // --- Set Design Package / Theme -----------------
     // ------------------------------------------------------
     
-    $installer
-    ->setConfigData('design/package/name', 'b-responsive')
-    ->setConfigData('design/theme/default', 'default');
+    $config = new Mage_Core_Model_Config();
+    $config->saveConfig('design/package/name', 'b-responsive');
+    $config->saveConfig('design/theme/default', 'default');
     
     $installer->endSetup();
-}catch(Excpetion $e){
+}catch(Exception $e){
     
     Mage::logException($e);
 }
