@@ -1,4 +1,4 @@
-b-responsive v 1.2.0 
+b-responsive v 1.2.1
 ================
 
 Magento Responsive Theme built with Twitter Bootstrap v3
@@ -22,6 +22,10 @@ Configurable Product Slider Widget<br/>
 Mega Menu - exploded menu containing static blocks<br/>
 Fallback Theme support for b-resonsive package for CE and EE<br/>
 Tested for CE 1.9, EE 1.14 (no changes required)
+<p>1.2.1</p>
+Added missing components to modman installer<br/>
+Fixed bug to set as default theme<br/>
+Added install script for CMS Home Page demo<br/>
 <br/>
 Composer Support
 
