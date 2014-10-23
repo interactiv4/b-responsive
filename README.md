@@ -31,7 +31,7 @@ Composer Support
 
 ================
 
-![alt tag](http://www.redlightblinking.com/wp-content/uploads/2013/12/boostrap-responsive.png)
+![alt tag](http://www.redlightblinking.com/wp-content/uploads/2014/10/b-responsive-showcase.png)
 
 ================
 
