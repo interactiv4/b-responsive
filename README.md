@@ -62,10 +62,9 @@ For more information about modman see [Colin Mollenhour's Github](https://github
 
 Currently compatiable (and tested) with:<br/>
 Magento Community 1.8, 1.9<br/>
+Magento Enterprise 1.13, 1.14<br/>
 IE 9.0, 10.0, 11.0<br/>
 Safari, Firefox, Chrome, Android and iOS<br/>
-
-Additional browsers, versions and community support coming soon...
 
 ================
 Built with Twitter Bootstrap v3 framework. See <a href="http://getbootstrap.com" target="_blank">getbootstrap.com</a> for more info and docs.
