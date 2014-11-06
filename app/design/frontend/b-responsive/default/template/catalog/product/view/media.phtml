@@ -85,11 +85,14 @@
 <?php if (count($this->getGalleryImages()) > 0): ?>
     <div id="carousel-product-images" class="carousel slide" data-ride="carousel">
       <!-- Indicators -->
-      <ol class="carousel-indicators">
-        <?php $i=0; foreach ($this->getGalleryImages() as $_image): ?>
-        <li data-target="#carousel-product-images" data-slide-to="<?php echo $i; ?>" <?php if($i==0):?>class="active"<?php endif; ?>></li>
-        <?php $i++; endforeach; ?>
-      </ol>
+      
+      <a class="left carousel-control" href="#carousel-product-images" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+  </a>
+  <a class="right carousel-control" href="#carousel-product-images" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+  </a>
+
 
       <!-- Wrapper for slides -->
       <div class="carousel-inner">
