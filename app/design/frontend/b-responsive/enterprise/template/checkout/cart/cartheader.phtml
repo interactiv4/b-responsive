@@ -31,7 +31,7 @@
  */
 ?>
 
-<div class="top-cart">
+<div class="top-cart a-left">
 <?php $_cartQty = $this->getSummaryCount() ?>
 <?php if ($_cartQty > 0): ?>
     <?php $_myCart = $this->__('My Cart <span class="badge">%s</span>', $_cartQty) ?>
@@ -41,21 +41,17 @@
 <?php if ($this->getIsLinkMode() || !$this->getIsNeedToDisplaySideBar()):?>
     <div class="block-title no-items">
         <ul class="links cart-link">
-            <li ><a href="<?php echo $this->getUrl('checkout/cart'); ?>"><?php echo $_myCart ?></a></li>
+            <li ><a><?php echo $_myCart ?></a></li>
         </ul>
     </div>
 <?php else:?>
     <div class="block-title<?php if(!$_cartQty) { echo (' no-items'); } ?>">
-        <strong id="cartHeader"><span class="glyphicon glyphicon-shopping-cart"></span><?php echo $_myCart ?></strong>
+        <a href="<?php echo $this->getUrl('checkout/cart'); ?>"><span class="glyphicon glyphicon-shopping-cart"></span><?php echo $_myCart ?></a>
     </div>
-    <div id="topCartContent" class="block-content" style="display:none">
+    <div id="topCartContent" class="block-content">
         <div class="inner-wrapper panel panel-default"><?php // extra div to smooth slideUp and slideDown ?>
         <?php $_items = $this->getRecentItems() ?>
         <?php if(count($_items)): ?>
-            <div class="panel-heading">
-                <span onclick="Enterprise.TopCart.hideCart()" class="glyphicon glyphicon-remove-circle"></span>
-                <h3 class="panel-title"><?php echo $this->__('Recently added item(s)') ?></h3>
-            </div>
             <div class="panel-body">
                 <ol id="mini-cart" class="mini-products-list">
                 <?php foreach($_items as $_item): ?>
@@ -65,10 +61,6 @@
             </div>
             <script type="text/javascript">decorateList('mini-cart', 'none-recursive')</script>
         <?php else: ?>
-            <div class="panel-heading">
-                <span onclick="Enterprise.TopCart.hideCart()" class="glyphicon glyphicon-remove-circle"></span>
-                <h3 class="panel-title"><?php echo $this->__('Recently added item(s)') ?></h3>
-            </div>
             <div class="cart-empty panel-body">
                 <?php echo $this->__('You have no items in your shopping cart.') ?>
             </div>
@@ -87,10 +79,5 @@
         <?php endif ?>
         </div>
     </div>
-<script type="text/javascript">
-    Enterprise.TopCart.initialize('topCartContent');
-    // Below can be used to show minicart after item added
-    // Enterprise.TopCart.showCart(7);
-</script>
 <?php endif;?>
 </div>

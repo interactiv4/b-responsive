@@ -43,6 +43,19 @@
         	</li>
         <?php endif;?>
     <?php endforeach; ?>
+    <li class="last">
+        <?php $count = $this->helper('checkout/cart')->getSummaryCount(); ?>
+        <a href="javascript:void(0)" data-canvas=".wrapper" data-target=".right-panel" data-recalc="false" data-toggle="offcanvas">
+            <span class="glyphicon glyphicon-shopping-cart"></span>
+            <?php $_cartQty = $this->helper('checkout/cart')->getSummaryCount() ?>
+            <?php if ($_cartQty > 0): ?>
+                <?php $_myCart = $this->__('My Cart <span class="badge">%s</span>', $_cartQty) ?>
+            <?php else: ?>
+                <?php $_myCart = $this->__('My Cart <span class="badge">0</span>') ?>
+            <?php endif ?>
+            <?php echo $_myCart ?></span>
+        </a>
+    </li>
 </ul>
 <?php endif; ?>
 <script type="text/javascript">

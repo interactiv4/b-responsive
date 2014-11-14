@@ -6,15 +6,44 @@
 				<!-- Adding jquery and twitter-bootstrap-files -->
 				<action method="addItem"><type>skin_js</type><name>js/jquery.js</name></action>
 				<action method="addItem"><type>skin_js</type><name>js/bootstrap.js</name></action>
+                <action method="addItem"><type>skin_js</type><name>js/jasny-bootstrap.min.js</name></action>
 				<action method="addItem"><type>skin_js</type><name>js/holder.js</name></action>
 				<action method="addCss"><stylesheet>css/bootstrap.css</stylesheet></action>
 				<action method="addCss"><stylesheet>css/bootstrap-theme.css</stylesheet></action>
+                <action method="addCss"><stylesheet>css/jasny-bootstrap.min.css</stylesheet></action>
 				<action method="addCss"><stylesheet>css/custom.css</stylesheet></action>
 			
 		    </reference>
 
 		    <remove name="wishlist_link"/>
+
+            <!-- Start off canvas -->
+            <block type="core/text_list" name="right_panel" as="right_panel" translate="label">
+                <label>Right Panel - Cart</label>
+            </block>
+            <!-- End off canvas -->
 		</reference>
+
+        <reference name="header">
+            <remove name="cart_sidebar"/>
+        </reference>
+
+        <reference name="right_panel">
+            <block type="core/template" name="right_panel_content" template="page/html/right_panel.phtml">
+                <block type="checkout/cart_sidebar" name="cart_offcanvas" as="cart_offcanvas" template="checkout/cart/cartheader.phtml">
+                    <action method="addItemRender"><type>simple</type><block>checkout/cart_item_renderer</block><template>checkout/cart/sidebar/default.phtml</template></action>
+                    <action method="addItemRender"><type>grouped</type><block>checkout/cart_item_renderer_grouped</block><template>checkout/cart/sidebar/default.phtml</template></action>
+                    <action method="addItemRender"><type>configurable</type><block>checkout/cart_item_renderer_configurable</block><template>checkout/cart/sidebar/default.phtml</template></action>
+                    <block type="core/text_list" name="topCart.extra_actions" as="extra_actions" translate="label" module="checkout">
+                        <label>My Cart Extra Actions</label>
+                    </block>
+                </block>
+            </block>
+        </reference>
+
+        <reference name="top.links">
+            <block type="core/template" name="customer_form_mini_login" before="-" template="customer/form/mini.login.phtml"/>
+        </reference>
 	</default>
 
     <catalog_product_view>
