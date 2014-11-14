@@ -17,11 +17,14 @@ a {
 
 img { max-width: 100%;}
 
-.wrapper { min-width: 280px;}
+.wrapper { min-width: 280px; position: relative; left: 0; z-index: 100;}
+
+.navmenu-fixed-right { z-index: 1; display: block !important;}
 
 .page {
   text-align: left;
   width: auto;
+  padding: 0;
 }
 .page-header {
   margin-top: 20px;
@@ -88,6 +91,7 @@ li {list-style: none}
 .header-panel .links {
   float: none;
   display: inline-block;
+  margin-right: 0;
 }
 .header-panel .links li a,
 .header-panel .links li a:hover {
@@ -107,6 +111,7 @@ li {list-style: none}
 
 .top-cart {
   white-space: normal;
+  padding: 5px;
 }
 
 #dropdown {
@@ -667,7 +672,7 @@ footer {
   font-size: 14px;
   font-weight: normal;
   line-height: 38px;
-  padding: 0;
+  padding: 0 5px 2px;
   text-transform: none;
   height: auto;
 }
@@ -685,10 +690,11 @@ footer {
   color: #444;
 }
 .top-cart .block-content {
-  top: 38px;
+  position: static;
   line-height: normal;
   background: none;
   text-align: left;
+  width: auto;
 }
 .top-cart .block-content ol {
   padding-bottom: 0;
