@@ -17,7 +17,7 @@ a {
 
 img { max-width: 100%;}
 
-.wrapper { min-width: 280px; position: relative; left: 0; z-index: 100;}
+.wrapper { min-width: 280px; position: relative; left: 0; z-index: 100; background-color: #fff;}
 
 .navmenu-fixed-right { z-index: 1; display: block !important;}
 
@@ -42,7 +42,7 @@ img { max-width: 100%;}
 
 li {list-style: none}
 
-.links li {display:inline}
+.links li {display:inline; position: relative;}
 
 .divider {
   background: #eee;
@@ -116,8 +116,9 @@ li {list-style: none}
 
 #dropdown {
   position: absolute;
-  right: 0;
+  left: 0;
   top: 100%;
+  margin-top: 10px;
 }
 #dropdown label {
   font-weight: normal;

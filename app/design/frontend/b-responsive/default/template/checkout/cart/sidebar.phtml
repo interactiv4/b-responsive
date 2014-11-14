@@ -58,11 +58,11 @@
             </ol>
             <script type="text/javascript">decorateList('cart-sidebar', 'none-recursive')</script>
         <?php else: ?>
-            <p class="empty"><?php echo $this->__('You have no items in your shopping cart.') ?></p>
+            <div class="panel-body"><?php echo $this->__('You have no items in your shopping cart.') ?></div>
         <?php endif ?>
 
+            <?php if ($_cartQty>0): ?>
             <div class="panel-footer">
-                <?php if ($_cartQty>0): ?>
                 <p class="subtotal a-right">
                     <?php if ($this->canApplyMsrp()): ?>
                         <span class="map-cart-sidebar-total"><?php echo $this->__('ORDER TOTAL WILL BE DISPLAYED BEFORE YOU SUBMIT THE ORDER'); ?></span>
@@ -73,7 +73,7 @@
                         <?php endif; ?>
                     <?php endif; ?>
                 </p>
-                <?php endif ?>
+                
                 <?php if($_cartQty && $this->isPossibleOnepageCheckout()): ?>
                 <div class="actions">
                     <?php echo $this->getChildHtml('extra_actions') ?>
@@ -81,6 +81,7 @@
                 </div>
                 <?php endif ?>
             </div>
+            <?php endif ?>
         </div>
     </div>
 </div>
