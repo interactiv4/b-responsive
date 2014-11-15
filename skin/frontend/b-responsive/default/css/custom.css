@@ -112,6 +112,11 @@ li {list-style: none}
 .top-cart {
   white-space: normal;
   padding: 5px;
+  width:100%;
+}
+.top-cart .panel {
+  border:none;
+  box-shadow:none;
 }
 
 #dropdown {
@@ -949,9 +954,10 @@ footer {
 
 .reward-message {
   margin: 5px 0;
+  background: #EF672F;
 }
 .reward-message .a-more a {
-  color: #333;
+  color: #fff;
   font-weight: bold;
 }
 
