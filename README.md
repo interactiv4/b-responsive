@@ -35,8 +35,8 @@ Composer Support
 
 ================
 
-DEMO
-<a href="http://responsive.redlightblinking.com/" target="_blank">responsive.redlightblinking.com</a>
+MORE INFO & DEMO
+<a href="http://www.b-responsive.com" target="_blank">www.b-responsive.com</a>
 
 ================
 
