@@ -1272,11 +1272,12 @@ button.button span {border:none}
   }
   .header form {
     display: block;
-    width: auto;
-    position: absolute;
-    top: 100%;
-    right: 10px;
     margin-top: 6px;
+    max-width: 240px;
+    position: absolute;
+    right: 10px;
+    top: 100%;
+    width: calc(100% - 74px);
   }
   .header form .form-control {
     color: #ccc;
