@@ -60,7 +60,7 @@ For more information about modman see [Colin Mollenhour's Github](https://github
 ================
 
 
-Currently compatiable (and tested) with:<br/>
+Currently compatible (and tested) with:<br/>
 Magento Community 1.8, 1.9<br/>
 Magento Enterprise 1.13, 1.14<br/>
 IE 9.0, 10.0, 11.0<br/>
